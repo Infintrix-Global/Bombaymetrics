@@ -1,0 +1,85 @@
+body{
+    overflow-x: hidden;
+}
+.divpadding
+{
+    padding-top: 5em;
+}
+.card1-img
+{
+    height:60vh;
+    width:100%;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #ff8800;
+    border-color: #e9ecef;
+    font-size:18px;
+}
+button:focus {
+    outline: none;
+    border: 0;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #304480;
+    border-color: #e9ecef;
+    font-size: 18px;
+}
+.dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #ff8800;
+}
+.dropdown-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #ff8800;
+}
+.heading
+{
+    padding-top:1em;
+}
+.tablepadding
+{
+    padding-topL4em;
+}
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: #304480;
+    border-bottom: 1px solidrgba(0,0,0,.125);
+    color:white;
+}
+.btn-primaryseries:hover {
+    background-color: #005924;
+    color:white;
+}
+.btn-primaryseries {
+    background-color: #ff8800;
+    color:white;
+}
+.btn-outline-primary {
+    color: white;
+    border-color: #0d6efd;
+    background-color: #304480;
+}
+.btn-outline-primary:hover {
+    color: white;
+    border-color: #0d6efd;
+    background-color: #304480;
+}
+.tableheader
+{
+    background-color: #304480;
+
+}
+.tableheader:hover
+{
+    background-color:#304480 !important;
+}
+table
+{
+    height:30vh;
+    width:100%;
+}

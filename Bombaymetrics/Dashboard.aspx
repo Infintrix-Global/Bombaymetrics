@@ -5,6 +5,5 @@
         <div class="col-md-6">
             Welcome Admin
         </div>
-    </div>
-   
+    </div>  
 </asp:Content>

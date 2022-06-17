@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Bombaymetrics.Login" %>
 
-<!DOCTYPE html>
-
+<!DOCTYPE html>`
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
@@ -26,14 +25,14 @@
                     <img src="Images/investment-material.jpg" alt="" class="img-responsive" width="400px"  /></div>
             </div>--%>
             <div class="col-md-8">
-                <div class="row" style="padding-top:10em">
-                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh">
+                <div class="row" style="">
+                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh;" >
                         <img src="Images/manufacturing.png" class="card1-img"/>
                     </div>
-                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa" >
-                    <div class="text-center" style="padding-top:4em"><img src="Images/BM-Supply-Chain-logo.png" width="180" height="110" alt="" class="text-center" /></div>
+                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh;" >
+                    <div class="text-center" style="padding-top:0.5em"><img src="Images/BM-Supply-Chain-logo.png" width="180" height="110" alt="" class="text-center" /></div>
                     <form class="login-form" action="" method="post">
-                    <div class="form-group" style="padding-top:3.5em">
+                    <div class="form-group" style="padding-top:0.5em">
                         <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                         <label class="control-label visible-ie8 visible-ie9">Enter Username</label>
 
@@ -45,22 +44,17 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label visible-ie8 visible-ie9">Enter Password</label>
-
-
                         <asp:textbox id="txtpassword" class="form-control form-control-solid placeholder-no-fix" BorderColor="Orange" placeholder="password" runat="server" textmode="password"></asp:textbox>
-
                         <span class="help-block">
                             <asp:requiredfieldvalidator id="requiredfieldvalidator2" runat="server" controltovalidate="txtpassword"
                                 setfocusonerror="true" errormessage="Please enter password" forecolor="red"></asp:requiredfieldvalidator>
                         </span>
-                        
                        <%-- <a href=""><p class="text-right" style="text-align:right;">Forgot Password?</p></a>--%>
                     </div>
 
                     <div class="form-actions  d-flex align-items-center justify-content-center">
                          <asp:button id="btnlogin" class="btn-primary btn-lg" runat="server" width="315px" text="login" onclick="btnlogin_click"/>
                     </div>
-
                 </form>
                 </div>
                 </div>

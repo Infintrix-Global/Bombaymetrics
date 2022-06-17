@@ -33,7 +33,6 @@
                 });
         });
      </script>
-
     
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

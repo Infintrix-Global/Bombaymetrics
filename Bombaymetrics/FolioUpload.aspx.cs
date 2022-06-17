@@ -68,7 +68,7 @@ namespace Bombaymetrics
                                 foreach (DataRow dr in dt.Rows)
                                 {
                                     SQLcmd.CommandType = CommandType.StoredProcedure;
-                                    SQLcmd.Parameters.Clear();
+
                                     SQLcmd.Parameters.Add("@AsOnDate", SqlDbType.Date).Value = dr[0];
                                     SQLcmd.Parameters.Add("@FolioNo", SqlDbType.VarChar).Value = dr[1];
                                     SQLcmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = dr[2];

@@ -2,7 +2,7 @@
 
 <asp:Content runat="server" ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="container-fluid py-3">
-        <h4 class="text-center text-uppercase heading" style="padding-bottom:2em">Upload excel file</h4>
+        <h4 class="text-center text-uppercase">Upload excel file</h4>
         <div class="card">
             <div class="card-header  text-uppercase">
                 <h5>Import Series Excel File</h5>
@@ -45,11 +45,13 @@
                         </div>
                     </div>
                 </div></div>
-                <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="true" CssClass="table table-responsive-xl table-hover">
+                <div class="table-responsive">
+                <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="true" CssClass="table table-hover">
                     <EmptyDataTemplate>
                         <div class="text-center">No record found</div>
                     </EmptyDataTemplate>
                 </asp:GridView>
+                    </div>
             </div>
         </div>
     </div>

@@ -36,10 +36,7 @@ button:focus {
     text-decoration: none;
     background-color: #ff8800;
 }
-.heading
-{
-    padding-top:1em;
-}
+
 .tablepadding
 {
     padding-topL4em;
@@ -80,6 +77,36 @@ button:focus {
 }
 table
 {
-    height:30vh;
     width:100%;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #304480;
+    border-color: #304480;
+}
+.page-link {
+    position: relative;
+    display: block;
+    color: #ff8800;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.dt-buttons
+{
+    float:right;
+}
+div.dataTables_wrapper div.dataTables_filter label {
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: left;
+    float:left;
+}
+button, html [type=button] {
+    -webkit-appearance: button;
+    background-color:#ff8800;
+    color:white;
+    border-color:#ff8800;
 }

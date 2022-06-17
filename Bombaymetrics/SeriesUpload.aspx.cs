@@ -17,6 +17,8 @@ namespace Bombaymetrics
             }
         }
 
+
+
         private void BindGridview()
         {
             string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
@@ -62,6 +64,8 @@ namespace Bombaymetrics
                         BindGridview();
                         lblMessage.Text = "Your file uploaded successfully";
                         lblMessage.ForeColor = System.Drawing.Color.Green;
+
+
                     }
                 }
                 catch (Exception ex)

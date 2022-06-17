@@ -16,15 +16,32 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="margin">
-        </div>
-
+       
         <!-- BEGIN LOGIN -->
-        <div class="row h-100 d-flex align-items-center justify-content-center">
-            <div class="col-md-8">
+        <div class="row justify-content-center">
+            <div class="col-md-8 ">
+                <div class="row " style="">
+                    
+                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh;" >
+                        <img src="Images/manufacturing.png" class="card1-img"/>
                 <div class="row" style="">
-                    <div class="col-md-6" style="border: solid #F8F8F8; box-shadow: 0px 5px 5px #aaaaaa; height: 70vh;">
-                        <img src="Images/manufacturing.png" class="card1-img" />
+                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh;" >
+                        <img src="Images/manufacturing.png" class="card1-img"/>
+                <div class="row" style="">
+                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh;" >
+                        <img src="Images/manufacturing.png" class="card1-img"/>
+                <div class="row" style="">
+                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh;" >
+                        <img src="Images/manufacturing.png" class="card1-img"/>
+                <div class="row" style="">
+                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh;" >
+                        <img src="Images/manufacturing.png" class="card1-img"/>
+                <div class="row" style="">
+                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh;" >
+                        <img src="Images/manufacturing.png" class="card1-img"/>
+                <div class="row" style="">
+                    <div class="col-md-6" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;height:70vh;" >
+                        <img src="Images/manufacturing.png" class="card1-img"/>
                     </div>
                     <div class="col-md-6" style="border: solid #F8F8F8; box-shadow: 0px 5px 5px #aaaaaa; height: 70vh;">
                         <div class="text-center" style="padding-top: 0.5em">

@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" />
@@ -16,19 +16,23 @@
 </head>
 <body>
     <form id="form1" class="login-form" runat="server">
-       
+
         <!-- BEGIN LOGIN -->
         <div class="row justify-content-center mt-5  pt-5 pb-5">
-            <div class="col-md-8 ">    
+            <div class="col-md-8 ">
                 <div class="row  pb-5 mt-5 pt-5">
-                    <div class="col-md-6 pb-2" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;">
-                        <img src="Images/manufacturing.png" class="card1-img"/>
+                    <div class="col-md-6 pb-2" style="border: solid #F8F8F8; box-shadow: 0px 5px 5px #aaaaaa;">
+                        <img src="Images/manufacturing.png" class="card1-img" />
                     </div>
-                    <div class="col-md-6 pt-5 pb-2" style="border:solid #F8F8F8;box-shadow: 0px 5px 5px #aaaaaa;" >
-                    <div class="text-center" style="padding-top:0em"><img src="Images/BM-Supply-Chain-logo.png" width="180" height="110" alt="" class="text-center" /></div>
-                    <div class="form-group" style="">
-                        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                        <label class="control-label visible-ie8 visible-ie9">Enter Username</label>
+                    <div class="col-md-6 pt-5 pb-2" style="border: solid #F8F8F8; box-shadow: 0px 5px 5px #aaaaaa;">
+                        <div class="text-center" style="padding-top: 0em">
+                            <img src="Images/BM-Supply-Chain-logo.png" width="180" height="110" alt="" class="text-center" />
+                        </div>
+                        <div class="form-group" style="">
+                            <asp:Label runat="server" Visible="false" ID="lblError" Style="color: red; font-weight: bolder">Invalid Username or Password</asp:Label>
+                            <br />
+                            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                            <label class="control-label visible-ie8 visible-ie9">Enter Username</label>
 
                             <asp:TextBox ID="txtusername" class="form-control form-control-solid placeholder-no-fix" BorderColor="Orange" BorderStyle="Solid" placeholder="username" runat="server"></asp:TextBox>
                             <span class="help-block">
@@ -52,9 +56,10 @@
                         <div class="form-actions  d-flex align-items-center justify-content-center">
                             <asp:Button ID="btnlogin" class="btn-primary btn-lg" runat="server" Width="315px" Text="Login" OnClick="btnlogin_click" />
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div></form>
+    </form>
 </body>
 </html>

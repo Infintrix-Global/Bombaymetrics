@@ -18,7 +18,14 @@ namespace Bombaymetrics
         }
         protected void btnlogin_click(object sender, EventArgs e)
         {
-            Response.Redirect("Dashboard.aspx");
+            if (getLoginDetails(txtusername.Text, txtpassword.Text) > 0)
+            {
+                Response.Redirect("Dashboard.aspx");
+            }
+            else
+            {
+                lblError.Visible = true;
+            }
         }
         public int getLoginDetails(string UserName, string Password)
         {
@@ -29,12 +36,12 @@ namespace Bombaymetrics
                 string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(CS))
                 {
-                    SqlCommand cmd = new SqlCommand("GeLogin", con);
+                    SqlCommand cmd = new SqlCommand("GetLogin", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
                     cmd.Parameters.Add(new SqlParameter( "@UserName", UserName));
                     cmd.Parameters.Add(new SqlParameter("@Password", Password));
-                    //output = cmd.ExecuteReader("SP_login");
+                    output =(int)cmd.ExecuteScalar();
                 }
 
             }

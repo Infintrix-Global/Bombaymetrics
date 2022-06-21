@@ -13,8 +13,28 @@ namespace Bombaymetrics
         {
             if (!IsPostBack)
             {
+                FromDate.Value = GetStartOfFinancialYear().ToString("yyyy-MM-dd");
+                ToDate.Value = GetEndOfFinancialYear().ToString("yyyy-MM-dd");
                 BindGridview();
             }
+        }
+        public DateTime GetStartOfFinancialYear()
+        {
+
+            DateTime startOfYear = new DateTime(DateTime.UtcNow.Year, 4, 1);
+            return
+                DateTime.UtcNow < startOfYear ?
+                    startOfYear.AddYears(-1) : startOfYear;
+
+        }
+        public DateTime GetEndOfFinancialYear()
+        {
+
+            DateTime startOfYear = new DateTime(DateTime.UtcNow.Year, 3, 31);
+            return
+                DateTime.UtcNow > startOfYear ?
+                    startOfYear.AddYears(1) : startOfYear;
+
         }
 
         private void BindGridview()
@@ -22,7 +42,9 @@ namespace Bombaymetrics
             string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(CS))
             {
-                SqlCommand cmd = new SqlCommand("GetWeekAverageReport", con);
+                SqlCommand cmd = new SqlCommand("GetWeekAverageDateWiseReport", con);
+                cmd.Parameters.Add(new SqlParameter("FromDate", FromDate.Value));
+                cmd.Parameters.Add(new SqlParameter("ToDate", ToDate.Value));
                 cmd.CommandType = CommandType.StoredProcedure;
                 con.Open();
                 GridView1.DataSource = cmd.ExecuteReader();
@@ -30,7 +52,10 @@ namespace Bombaymetrics
                 con.Close();
             }
         }
-       
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            BindGridview();
+        }
     }
 }
 

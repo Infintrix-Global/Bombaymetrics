@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data.OleDb;
 using System.Data.Common;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace Bombaymetrics
 {
@@ -41,7 +42,6 @@ namespace Bombaymetrics
                     string path = string.Concat(Server.MapPath("~/UploadFile/" + FileUpload1.FileName));
                     FileUpload1.SaveAs(path);
                     // Connection String to Excel Workbook
-                    //string excelCS = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=Excel 8.0", path);
                     string excelCS = string.Format(ConfigurationManager.ConnectionStrings["ExcelConn"].ConnectionString, path);
                     using (OleDbConnection con = new OleDbConnection(excelCS))
                     {
@@ -77,6 +77,7 @@ namespace Bombaymetrics
                 }
             }
         }
+        
     }
 }
 

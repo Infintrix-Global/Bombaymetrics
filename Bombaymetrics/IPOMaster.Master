@@ -24,8 +24,7 @@
         $(document).ready(function () {
             $("#GridView1").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable(
                 {
-
-                    dom: 'lBfrtip',
+                    dom: '<"top"<"left-col"B><"center-col"l><"right-col"f>>rtip',
                     buttons: [
                         'excel', 'pdf', 'print'
                     ]
@@ -62,13 +61,13 @@
                 <div class="collapse navbar-collapse" id="navbartext">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active" style="font-size: 21px">
-                            <a class="nav-link" href="dashboard.aspx"><b>Home</b><span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="Dashboard.aspx"><b>Home</b><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active" style="font-size: 21px">
-                            <a class="nav-link" href="seriesupload.aspx"><b>Series</b><span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="SeriesUpload.aspx"><b>Series</b><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active" style="font-size: 21px">
-                            <a class="nav-link" href="folioupload.aspx"><b>Folio</b><span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="FolioUpload.aspx"><b>Folio</b><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active dropdown" style="font-size: 21px">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Reports</b><span class="sr-only">(current)</span></a>

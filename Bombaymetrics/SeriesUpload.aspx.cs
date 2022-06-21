@@ -63,7 +63,7 @@ namespace Bombaymetrics
                         bulkInsert.DestinationTableName = "Series";
                         bulkInsert.WriteToServer(dr);
                         BindGridview();
-                        lblMessage.Text = "Your file uploaded successfully";
+                        lblMessage.Text = "Your file uploaded successfully.";
                         lblMessage.ForeColor = System.Drawing.Color.Green;
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showModal();", true);
 
@@ -71,7 +71,7 @@ namespace Bombaymetrics
                 }
                 catch (Exception ex)
                 {
-                    lblMessage.Text = "Your file not uploaded" + ex.StackTrace;
+                    lblMessage.Text = "Your file not uploaded. " + ex.StackTrace;
                     lblMessage.ForeColor = System.Drawing.Color.Red;
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showModal();", true);
                 }

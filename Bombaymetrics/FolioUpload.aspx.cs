@@ -87,14 +87,14 @@ namespace Bombaymetrics
                         }
                        
                         BindGridview();
-                        lblMessage.Text = "Your file uploaded successfully";
+                        lblMessage.Text = "Your file uploaded successfully.";
                         lblMessage.ForeColor = System.Drawing.Color.Green;
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showModal();", true);
                     }
                 }
                 catch (Exception ex)
                 {
-                    lblMessage.Text = "Your file not uploaded" + ex.Message;
+                    lblMessage.Text = "Your file not uploaded. " + ex.Message;
                     lblMessage.ForeColor = System.Drawing.Color.Red;
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showModal();", true);
                 }

@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeriesUpload.aspx.cs" MasterPageFile="~/IPOMaster.Master" Inherits="Bombaymetrics.SeriesUpload" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FolioUpload.aspx.cs" MasterPageFile="~/Main.Master" Inherits="Bombaymetrics.FolioUpload" %>
 
 <asp:Content runat="server" ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="container-fluid py-3">
         <h4 class="text-center text-uppercase">Upload excel file</h4>
         <div class="card">
-            <div class="card-header  text-uppercase">
-                <h5>Import Series Excel File</h5>
+            <div class="card-header text-uppercase">
+                <h5>Import Folio Excel File</h5>
             </div>
             <div class="card-body">
                 <div>
@@ -47,8 +47,7 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white"                       
-                        ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="true" CssClass="table table-hover">
+                    <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white" ShowHeaderWhenEmpty="false" runat="server" AutoGenerateColumns="true" CssClass="table  table-hover">
                         <EmptyDataTemplate>
                             <div class="text-center">No record found</div>
                         </EmptyDataTemplate>
@@ -57,5 +56,4 @@
             </div>
         </div>
     </div>
-
 </asp:Content>

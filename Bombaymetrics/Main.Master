@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="IPOMaster.master.cs" Inherits="Bombaymetrics.IPOMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.Master.cs" Inherits="Bombaymetrics.Main" %>
 
 <!DOCTYPE html>
 
@@ -54,28 +54,34 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow: 0px 5px 5px #aaaaaa">
                 <a class="navbar-brand" href="dashboard.aspx">
-                    <img src="images/bm-supply-chain-logo.png" width="150" height="70" alt="" /></a>
+                    <img src="<%=ResolveClientUrl("~/images/bm-supply-chain-logo.png") %>" width="120" height="50" alt="" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbartext" aria-controls="navbartext" aria-expanded="false" aria-label="toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbartext">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active" style="font-size: 21px">
-                            <a class="nav-link" href="Dashboard.aspx"><b>Home</b><span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="<%=ResolveClientUrl("~/Dashboard.aspx") %>"><b>Home</b><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active" style="font-size: 21px">
-                            <a class="nav-link" href="SeriesUpload.aspx"><b>Series</b><span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="<%=ResolveClientUrl("~/IPO/SeriesUpload.aspx") %>"><b>Series</b><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active" style="font-size: 21px">
-                            <a class="nav-link" href="FolioUpload.aspx"><b>Folio</b><span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="<%=ResolveClientUrl("~/IPO/FolioUpload.aspx") %>"><b>Folio</b><span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active dropdown" style="font-size: 21px">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Reports</b><span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu">
-                                <a href="investorholdingreport.aspx" class="dropdown-item"><b>Investor</b></a>
-                                <a href="seriesdetailreport.aspx" class="dropdown-item"><b>Series</b></a>
-                                <a href="shareholderpanreport.aspx" class="dropdown-item"><b>Pan Details</b></a>
-                                <a href="weeklyreport.aspx" class="dropdown-item"><b>Weekly Report</b></a>
+                                <a href="<%=ResolveClientUrl("~/IPO/Reports/investorholdingreport.aspx") %>" class="dropdown-item"><b>Investor</b></a>
+                                <a href="<%=ResolveClientUrl("~/IPO/Reports/seriesdetailreport.aspx") %>" class="dropdown-item"><b>Series</b></a>
+                                <a href="<%=ResolveClientUrl("~/IPO/Reports/shareholderpanreport.aspx") %>" class="dropdown-item"><b>Pan Details</b></a>
+                                <a href="<%=ResolveClientUrl("~/IPO/Reports/weeklyreport.aspx") %>" class="dropdown-item"><b>Weekly Report</b></a>
+                            </div>
+                        </li>
+                          <li class="nav-item active dropdown" style="font-size: 21px">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Inventory</b><span class="sr-only">(current)</span></a>
+                            <div class="dropdown-menu">
+                                <a href="<%=ResolveClientUrl("~/Inventory/ItemMaster.aspx") %>" class="dropdown-item"><b>Item Master</b></a>
                             </div>
                         </li>
                     </ul>
@@ -83,9 +89,7 @@
                         <li class="nav-item  active  dropdown" style="font-size: 21px">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Admin</b><span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu dropdown-menu-end">
-                              <%--  <a href="#" class="dropdown-item"><b>Reports</b></a>
-                                <a href="#" class="dropdown-item"><b>Settings</b></a>--%>
-                                
+                                                           
                                 <div class="dropdown-divider"></div>
                                 <a href="login.aspx" class="dropdown-item"><b>Logout</b></a>
                             </div>

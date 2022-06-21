@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeriesDetailReport.aspx.cs" MasterPageFile="~/IPOMaster.Master" Inherits="Bombaymetrics.SeriesDetailReport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SeriesDetailReport.aspx.cs" MasterPageFile="~/Main.Master" Inherits="Bombaymetrics.SeriesDetailReport" %>
 <asp:Content runat="server" ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="containerfluid py-3">
         <h2 class="text-center text-uppercase" >Report</h2>

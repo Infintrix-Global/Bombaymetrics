@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" MasterPageFile="~/IPOMaster.Master" Inherits="Bombaymetrics.Dashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" MasterPageFile="~/Main.Master" Inherits="Bombaymetrics.Dashboard" %>
 <asp:Content runat="server" ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1">
 
     <div class="row">

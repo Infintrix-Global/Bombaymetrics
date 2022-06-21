@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Bombaymetrics
+namespace Bombaymetrics.Inventory
 {
-    public partial class IPOMaster : System.Web.UI.MasterPage
+    public partial class ItemMaster : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

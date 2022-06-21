@@ -100,20 +100,21 @@
   <ItemGroup>
     <Content Include="CSS\style.css" />
     <Content Include="Dashboard.aspx" />
-    <Content Include="FolioUpload.aspx" />
+    <Content Include="IPO\FolioUpload.aspx" />
     <Content Include="Images\9859.jpg" />
     <Content Include="Images\BM-Supply-Chain-logo.png" />
     <Content Include="Images\investment-material.jpg" />
     <Content Include="Images\manufacturing.png" />
-    <Content Include="WeeklyReport.aspx" />
-    <Content Include="ShareHolderPANReport.aspx" />
-    <Content Include="SeriesDetailReport.aspx" />
+    <Content Include="Inventory\ItemMaster.aspx" />
+    <Content Include="IPO\Reports\WeeklyReport.aspx" />
+    <Content Include="IPO\Reports\ShareHolderPANReport.aspx" />
+    <Content Include="IPO\Reports\SeriesDetailReport.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="IPOMaster.Master" />
+    <Content Include="Main.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -122,8 +123,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="InvestorHoldingReport.aspx" />
-    <Content Include="SeriesUpload.aspx" />
+    <Content Include="IPO\Reports\InvestorHoldingReport.aspx" />
+    <Content Include="IPO\SeriesUpload.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config">
@@ -139,54 +140,61 @@
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FolioUpload.aspx.cs">
+    <Compile Include="IPO\FolioUpload.aspx.cs">
       <DependentUpon>FolioUpload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FolioUpload.aspx.designer.cs">
+    <Compile Include="IPO\FolioUpload.aspx.designer.cs">
       <DependentUpon>FolioUpload.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WeeklyReport.aspx.cs">
+    <Compile Include="Inventory\ItemMaster.aspx.cs">
+      <DependentUpon>ItemMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\ItemMaster.aspx.designer.cs">
+      <DependentUpon>ItemMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IPO\Reports\WeeklyReport.aspx.cs">
       <DependentUpon>WeeklyReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WeeklyReport.aspx.designer.cs">
+    <Compile Include="IPO\Reports\WeeklyReport.aspx.designer.cs">
       <DependentUpon>WeeklyReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ShareHolderPANReport.aspx.cs">
+    <Compile Include="IPO\Reports\ShareHolderPANReport.aspx.cs">
       <DependentUpon>ShareHolderPANReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ShareHolderPANReport.aspx.designer.cs">
+    <Compile Include="IPO\Reports\ShareHolderPANReport.aspx.designer.cs">
       <DependentUpon>ShareHolderPANReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SeriesDetailReport.aspx.cs">
+    <Compile Include="IPO\Reports\SeriesDetailReport.aspx.cs">
       <DependentUpon>SeriesDetailReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SeriesDetailReport.aspx.designer.cs">
+    <Compile Include="IPO\Reports\SeriesDetailReport.aspx.designer.cs">
       <DependentUpon>SeriesDetailReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InvestorHoldingReport.aspx.cs">
+    <Compile Include="IPO\Reports\InvestorHoldingReport.aspx.cs">
       <DependentUpon>InvestorHoldingReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InvestorHoldingReport.aspx.designer.cs">
+    <Compile Include="IPO\Reports\InvestorHoldingReport.aspx.designer.cs">
       <DependentUpon>InvestorHoldingReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SeriesUpload.aspx.cs">
+    <Compile Include="IPO\SeriesUpload.aspx.cs">
       <DependentUpon>SeriesUpload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SeriesUpload.aspx.designer.cs">
+    <Compile Include="IPO\SeriesUpload.aspx.designer.cs">
       <DependentUpon>SeriesUpload.aspx</DependentUpon>
     </Compile>
-    <Compile Include="IPOMaster.Master.cs">
-      <DependentUpon>IPOMaster.Master</DependentUpon>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="IPOMaster.Master.designer.cs">
-      <DependentUpon>IPOMaster.Master</DependentUpon>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -198,7 +206,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BAL_Classes\" />
+    <Folder Include="BAL\" />
     <Folder Include="UploadFile\" />
   </ItemGroup>
   <PropertyGroup>

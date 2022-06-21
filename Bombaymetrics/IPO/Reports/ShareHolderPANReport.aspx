@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShareHolderPANReport.aspx.cs" MasterPageFile="~/IPOMaster.Master" Inherits="Bombaymetrics.ShareHolderPANReport" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShareHolderPANReport.aspx.cs" MasterPageFile="~/Main.Master" Inherits="Bombaymetrics.ShareHolderPANReport" %>
 
 <asp:Content runat="server" ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="containerfluid py-3">

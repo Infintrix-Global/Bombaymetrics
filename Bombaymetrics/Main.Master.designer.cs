@@ -11,7 +11,7 @@ namespace Bombaymetrics
 {
 
 
-    public partial class IPOMaster
+    public partial class Main
     {
 
         /// <summary>

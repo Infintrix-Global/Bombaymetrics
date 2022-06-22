@@ -26,7 +26,13 @@
                 {
                     dom: '<"top"<"left-col"B><"center-col"l><"right-col"f>>rtip',
                     buttons: [
-                        'excel', 'pdf', 'print'
+                        'excel',
+                        {
+                            extend: 'pdfHtml5',
+                            orientation: 'landscape',
+                            pageSize: 'LEGAL'
+                        },
+                        'print'
                     ]
                 });
         });
@@ -43,7 +49,7 @@
             $("#myModal").modal('show');
         }
     </script>
-    
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="CSS/style.css" />
@@ -63,22 +69,19 @@
                         <li class="nav-item active" style="font-size: 21px">
                             <a class="nav-link" href="<%=ResolveClientUrl("~/Dashboard.aspx") %>"><b>Home</b><span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item active" style="font-size: 21px">
-                            <a class="nav-link" href="<%=ResolveClientUrl("~/IPO/SeriesUpload.aspx") %>"><b>Series</b><span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active" style="font-size: 21px">
-                            <a class="nav-link" href="<%=ResolveClientUrl("~/IPO/FolioUpload.aspx") %>"><b>Folio</b><span class="sr-only">(current)</span></a>
-                        </li>
                         <li class="nav-item active dropdown" style="font-size: 21px">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Reports</b><span class="sr-only">(current)</span></a>
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><b>IPO</b><span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu">
-                                <a href="<%=ResolveClientUrl("~/IPO/Reports/investorholdingreport.aspx") %>" class="dropdown-item"><b>Investor</b></a>
-                                <a href="<%=ResolveClientUrl("~/IPO/Reports/seriesdetailreport.aspx") %>" class="dropdown-item"><b>Series</b></a>
-                                <a href="<%=ResolveClientUrl("~/IPO/Reports/shareholderpanreport.aspx") %>" class="dropdown-item"><b>Pan Details</b></a>
-                                <a href="<%=ResolveClientUrl("~/IPO/Reports/weeklyreport.aspx") %>" class="dropdown-item"><b>Weekly Report</b></a>
+                                <a class="nav-link" href="<%=ResolveClientUrl("~/IPO/SeriesUpload.aspx") %>"><b>Upload Series</b><span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="<%=ResolveClientUrl("~/IPO/FolioUpload.aspx") %>"><b>Upload Folio</b><span class="sr-only">(current)</span></a>
+                                <div class="dropdown-divider"></div>                             
+                                <a href="<%=ResolveClientUrl("~/IPO/Reports/InvestorHoldingReport.aspx") %>" class="nav-link"><b>Investor Report</b><span class="sr-only">(current)</span></a>
+                                <a href="<%=ResolveClientUrl("~/IPO/Reports/SeriesdetailReport.aspx") %>" class="nav-link"><b>Series Report</b><span class="sr-only">(current)</span></a>
+                                <a href="<%=ResolveClientUrl("~/IPO/Reports/ShareholderPanReport.aspx") %>" class="nav-link"><b>Pan Details Report</b><span class="sr-only">(current)</span></a>
+                                <a href="<%=ResolveClientUrl("~/IPO/Reports/WeeklyReport.aspx") %>" class="nav-link"><b>Weekly Report</b><span class="sr-only">(current)</span></a>                               
                             </div>
                         </li>
-                          <li class="nav-item active dropdown" style="font-size: 21px">
+                        <li class="nav-item active dropdown" style="font-size: 21px">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Inventory</b><span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu">
                                 <a href="<%=ResolveClientUrl("~/Inventory/ItemMaster.aspx") %>" class="dropdown-item"><b>Item Master</b></a>
@@ -89,7 +92,6 @@
                         <li class="nav-item  active  dropdown" style="font-size: 21px">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Admin</b><span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                                           
                                 <div class="dropdown-divider"></div>
                                 <a href="login.aspx" class="dropdown-item"><b>Logout</b></a>
                             </div>

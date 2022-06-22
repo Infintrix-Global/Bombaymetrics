@@ -52,16 +52,46 @@ namespace Bombaymetrics
                         string sheetName = "Series$";
                         con.Close();
 
+                        DataTable dt = new DataTable();
                         OleDbCommand cmd = new OleDbCommand("select * from [" + sheetName + "]", con);
                         con.Open();
                         // Create DbDataReader to Data Worksheet
-                        DbDataReader dr = cmd.ExecuteReader();
+                        OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+                        adapter.Fill(dt);
                         // SQL Server Connection String
                         string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-                        // Bulk Copy to SQL Server 
-                        SqlBulkCopy bulkInsert = new SqlBulkCopy(CS);
-                        bulkInsert.DestinationTableName = "Series";
-                        bulkInsert.WriteToServer(dr);
+
+                        //call SP
+                        using (SqlConnection SQLcon = new SqlConnection(CS))
+                        {
+                            using (SqlCommand SQLcmd = new SqlCommand("InsertSeries", SQLcon))
+                            {
+                                SQLcon.Open();
+                                foreach (DataRow dr in dt.Rows)
+                                {
+                                    SQLcmd.CommandType = CommandType.StoredProcedure;
+                                    SQLcmd.Parameters.Clear();
+                                    SQLcmd.Parameters.Add("@AsOnDate", SqlDbType.Date).Value = dr[0];
+                                    SQLcmd.Parameters.Add("@Series", SqlDbType.VarChar).Value = dr[1];
+                                    SQLcmd.Parameters.Add("@Open", SqlDbType.Decimal).Value = dr[2];
+                                    SQLcmd.Parameters.Add("@High", SqlDbType.Decimal).Value = dr[3];
+                                    SQLcmd.Parameters.Add("@Low", SqlDbType.Decimal).Value = dr[4];
+                                    SQLcmd.Parameters.Add("@PrevClose", SqlDbType.Decimal).Value = dr[5];
+                                    SQLcmd.Parameters.Add("@Ltp", SqlDbType.Decimal).Value = dr[6];
+                                    SQLcmd.Parameters.Add("@Close", SqlDbType.Decimal).Value = dr[7];
+                                    SQLcmd.Parameters.Add("@vwap", SqlDbType.Decimal).Value = dr[8];
+                                    SQLcmd.Parameters.Add("@52WH", SqlDbType.Decimal).Value = dr[9];
+                                    SQLcmd.Parameters.Add("@52WL", SqlDbType.Decimal).Value = dr[10];
+                                    SQLcmd.Parameters.Add("@Volume", SqlDbType.Decimal).Value = dr[11];
+                                    SQLcmd.Parameters.Add("@Value", SqlDbType.Decimal).Value = dr[12];
+                                    SQLcmd.Parameters.Add("@NoofTrades", SqlDbType.Int).Value = dr[13];
+                                    SQLcmd.Parameters.Add("@PriceBand", SqlDbType.VarChar).Value = dr[14];
+
+                                    SQLcmd.ExecuteNonQuery();
+                                }
+                                SQLcon.Close();
+                            }
+                        }
                         BindGridview();
                         lblMessage.Text = "Your file uploaded successfully.";
                         lblMessage.ForeColor = System.Drawing.Color.Green;
@@ -77,7 +107,7 @@ namespace Bombaymetrics
                 }
             }
         }
-        
+
     }
 }
 

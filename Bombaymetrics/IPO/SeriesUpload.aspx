@@ -8,10 +8,12 @@
                 <h5>Import Series Excel File</h5>
             </div>
             <div class="card-body">
-                <div>
-                    <button type="button" class="btn btn-primaryseries" data-toggle="modal" data-target="#myModal">
-                        <i class="fa fa-plus-circle"></i>Import Excel
-                    </button>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button style="" type="button" class="btn btn-primaryseries" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-plus-circle"></i>Import Excel
+                        </button>
+                    </div>
                     <div class="modal fade" id="myModal">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -47,7 +49,7 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white"                       
+                    <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white"
                         ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="true" CssClass="table table-hover">
                         <EmptyDataTemplate>
                             <div class="text-center">No record found</div>
@@ -57,5 +59,4 @@
             </div>
         </div>
     </div>
-
 </asp:Content>

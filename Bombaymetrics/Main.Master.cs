@@ -19,8 +19,8 @@ namespace Bombaymetrics
                 Session.RemoveAll();
                 Response.Redirect("Login.aspx");
             }
-            if (!IsPostBack)
-                BindMenu();
+
+            BindMenu();
         }
         private void BindMenu()
         {
@@ -59,7 +59,7 @@ namespace Bombaymetrics
                     }
                     else
                     {
-                        var literalMenu = new LiteralControl("<li class='nav-item active'><a class='nav-link' href='" + ResolveClientUrl(row["Path"].ToString()) + "'>" + row["MenuName"].ToString() + "<span class='sr-only'>(current)</span>"  + "</a>");
+                        var literalMenu = new LiteralControl("<li class='nav-item active'><a class='nav-link' href='" + ResolveClientUrl(row["Path"].ToString()) + "'>" + row["MenuName"].ToString() + "<span class='sr-only'>(current)</span>" + "</a>");
                         PlhldrMenu.Controls.Add(literalMenu);
                     }
 

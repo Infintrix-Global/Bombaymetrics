@@ -53,6 +53,7 @@ namespace Bombaymetrics
                 string d = AsOnDate.Value;
                 DateTime dt = DateTime.ParseExact(d, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 string newString = dt.ToString("MM/dd/yy");
+                //lblDate.Text = newString;
                 cmd.Parameters.Add(new SqlParameter("AsOnDate", newString));
                 cmd.CommandType = CommandType.StoredProcedure;
                 con.Open();

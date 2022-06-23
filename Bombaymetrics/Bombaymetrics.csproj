@@ -127,12 +127,13 @@
     <Content Include="IPO\SeriesUpload.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="UserManagement\UserAccess.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonControl.cs" />
+    <Compile Include="BAL\General.cs" />
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -204,9 +205,15 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserManagement\UserAccess.aspx.cs">
+      <DependentUpon>UserAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\UserAccess.aspx.designer.cs">
+      <DependentUpon>UserAccess.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BAL\" />
     <Folder Include="UploadFile\" />
   </ItemGroup>
   <PropertyGroup>

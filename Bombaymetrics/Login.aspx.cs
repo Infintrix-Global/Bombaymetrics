@@ -17,9 +17,11 @@ namespace Bombaymetrics
 
         }
         protected void btnlogin_click(object sender, EventArgs e)
-        {
-            if (getLoginDetails(txtusername.Text, txtpassword.Text) > 0)
+        {            
+            int UserID = getLoginDetails(txtusername.Text, txtpassword.Text);
+            if (UserID > 0)
             {
+                Session["UserID"] = UserID;
                 Response.Redirect("Dashboard.aspx");
             }
             else
@@ -29,7 +31,7 @@ namespace Bombaymetrics
         }
         public int getLoginDetails(string UserName, string Password)
         {
-
+            
             int output = 0;
             try
             {
@@ -39,9 +41,20 @@ namespace Bombaymetrics
                     SqlCommand cmd = new SqlCommand("GetLogin", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     con.Open();
-                    cmd.Parameters.Add(new SqlParameter( "@UserName", UserName));
+                    cmd.Parameters.Add(new SqlParameter("@UserName", UserName));
                     cmd.Parameters.Add(new SqlParameter("@Password", Password));
-                    output =(int)cmd.ExecuteScalar();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "Login");
+
+                    DataTable dt = ds.Tables[0];
+                    if (dt == null || dt.Rows.Count == 0)
+                        return 0;
+                    DataRow dr = dt.Rows[0];
+                    Session["UserID"] = (int)dr[0];
+                    Session["UserName"] = (string)dr[1];
+                    Session["RoleID"] = (int)dr[3];
+                    return (int)dr[0];
                 }
 
             }

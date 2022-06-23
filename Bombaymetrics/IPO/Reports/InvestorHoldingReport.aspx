@@ -18,6 +18,7 @@
                             <li>
                                 <input type="date" class="form-control" runat="server" id="AsOnDate" />
                             </li>
+                            <%--<asp:Label runat="server" ID="lblDate" />--%>
                         </ul>
                     </div>
                     <div class="col-md-3">

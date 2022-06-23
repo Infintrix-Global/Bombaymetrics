@@ -65,31 +65,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbartext">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active" style="font-size: 21px">
-                            <a class="nav-link" href="<%=ResolveClientUrl("~/Dashboard.aspx") %>"><b>Home</b><span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active dropdown" style="font-size: 21px">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><b>IPO</b><span class="sr-only">(current)</span></a>
-                            <div class="dropdown-menu">
-                                <a class="nav-link" href="<%=ResolveClientUrl("~/IPO/SeriesUpload.aspx") %>"><b>Upload Series</b><span class="sr-only">(current)</span></a>
-                                <a class="nav-link" href="<%=ResolveClientUrl("~/IPO/FolioUpload.aspx") %>"><b>Upload Folio</b><span class="sr-only">(current)</span></a>
-                                <div class="dropdown-divider"></div>                             
-                                <a href="<%=ResolveClientUrl("~/IPO/Reports/InvestorHoldingReport.aspx") %>" class="nav-link"><b>Investor Report</b><span class="sr-only">(current)</span></a>
-                                <a href="<%=ResolveClientUrl("~/IPO/Reports/SeriesdetailReport.aspx") %>" class="nav-link"><b>Series Report</b><span class="sr-only">(current)</span></a>
-                                <a href="<%=ResolveClientUrl("~/IPO/Reports/ShareholderPanReport.aspx") %>" class="nav-link"><b>Pan Details Report</b><span class="sr-only">(current)</span></a>
-                                <a href="<%=ResolveClientUrl("~/IPO/Reports/WeeklyReport.aspx") %>" class="nav-link"><b>Weekly Report</b><span class="sr-only">(current)</span></a>                               
-                            </div>
-                        </li>
-                        <li class="nav-item active dropdown" style="font-size: 21px">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Inventory</b><span class="sr-only">(current)</span></a>
-                            <div class="dropdown-menu">
-                                <a href="<%=ResolveClientUrl("~/Inventory/ItemMaster.aspx") %>" class="dropdown-item"><b>Item Master</b></a>
-                            </div>
-                        </li>
+                    <ul class="nav navbar-nav ms-auto">
+                        <asp:PlaceHolder ID="PlhldrMenu" runat="server"></asp:PlaceHolder>
                     </ul>
                     <ul class="nav navbar-nav ms-auto">
-                        <li class="nav-item  active  dropdown" style="font-size: 21px">
+                        <li class="nav-item  active  dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><b>Admin</b><span class="sr-only">(current)</span></a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <div class="dropdown-divider"></div>
@@ -97,6 +77,7 @@
                             </div>
                         </li>
                     </ul>
+
                 </div>
             </nav>
         </div>

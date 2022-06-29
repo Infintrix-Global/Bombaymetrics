@@ -31,10 +31,20 @@
                     </div>
                 </div>
 
-                <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="true" CssClass="table  table-hover">
+                <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="false" CssClass="table  table-hover">
                     <EmptyDataTemplate>
                         <div class="text-center">No record found</div>
                     </EmptyDataTemplate>
+                    <Columns>
+                        <asp:TemplateField HeaderText="Investor Name">
+                            <ItemTemplate>
+                                <asp:HyperLink runat="server" Text='<%#Eval("UserName")%>' Target="_blank" NavigateUrl='<%# Eval("ID","~/IPO/Reports/InvestorProfitLoss.aspx?InvestorID={0}") %>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="AsOnDate" HeaderText="As On Date" />
+                         <asp:BoundField DataField="TotalShares" HeaderText="Total Shares" />
+                         <asp:BoundField DataField="HoldingPercentage" HeaderText="Holding Percentage" />
+                    </Columns>
                 </asp:GridView>
             </div>
         </div>

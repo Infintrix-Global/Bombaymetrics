@@ -17,7 +17,7 @@ namespace Bombaymetrics
             if (Session["UserID"] == null)
             {
                 Session.RemoveAll();
-                Response.Redirect("Login.aspx");
+                Response.Redirect("~/Login.aspx");
             }
 
             BindMenu();

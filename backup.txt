@@ -54,3 +54,18 @@
                             </div>
                         </li>
                     </ul>
+					
+					SELECT UserName, PanNo,convert(varchar,Folio.AsOnDate, 3) as [Investment Date],	
+	Folio.Holding - isnull(Cast((select  Holding from Folio S2 where S2.UserID=10  and S2.AsOnDate=
+	(select max(AsOnDate) from Folio S3 where S3.AsOnDate <Folio.AsOnDate and Folio.UserID=10))as decimal(10,0)),0) as [Qty], 
+	isnull(Series.vwap,0) as [Apox VWP price],Holding ,
+	case when (Folio.Holding - (isnull(Cast((select  Holding from Folio S2 where S2.UserID=10  and S2.AsOnDate=
+	(select max(AsOnDate) from Folio S3 where S3.AsOnDate <Folio.AsOnDate and Folio.UserID=10))as decimal(10,0)),0)) =0)
+	Then (Series.vwap * Cast((select Holding from Series S2 where S2.AsOnDate=(select max(AsOnDate) from Series S3 where S3.AsOnDate <Series.AsOnDate))as decimal(10,2)) ) 
+	else 1
+	end as [Investment value]
+	
+	from 
+	Folio join [User] on Folio.UserID=[User].ID
+	left outer join Series on Folio.AsOnDate= Series.AsOnDate 
+	where Folio.UserID= 10 order by Folio.AsOnDate

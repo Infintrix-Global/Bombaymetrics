@@ -65,3 +65,42 @@ case when (Holding -PrevHolding =0)
  as [Investment value], PrevHolding from #Temp
 
 drop table #Temp
+
+
+
+
+
+DECLARE db_cursor4 CURSOR FOR 
+select AsOnDate,Holding ,vwap from #Temp1
+OPEN db_cursor4  
+FETCH NEXT FROM db_cursor4 INTO @AsOnDate, @Holding  , @vwap
+
+WHILE @@FETCH_STATUS = 0  
+BEGIN 
+Print @AsOnDate
+declare @PrevInvestment decimal(10,2)
+set @PrevInvestment=isnull((select [Investment value]  from  dbo.GetPreviousAsonDateForUser(@UserID,@AsOnDate) ),@Holding * @vwap)
+Print @PrevInvestment
+declare @PrevHolding int
+set @PrevHolding=isnull((select Holding  from  dbo.GetPreviousAsonDateForUser(@UserID,@AsOnDate) ),0)
+update #Temp1 set PrevHolding=@PrevHolding,
+Prevvwap=isnull((select vwap  from  dbo.GetPreviousAsonDateForUser(@UserID,@AsOnDate) ),0),
+PrevInvestment=((@Holding - @PrevHolding) *@vwap) + @PrevInvestment
+where #Temp1.AsOnDate= @AsOnDate and #Temp1.Holding= @Holding  and #Temp1.vwap= @vwap
+    
+      FETCH NEXT FROM db_cursor4 INTO @AsOnDate, @Holding  , @vwap 
+END 
+
+CLOSE db_cursor4
+DEALLOCATE db_cursor4
+
+
+select convert(varchar,AsOnDate, 1) as [Investment Date],Holding - PrevHolding as [Qty],
+isnull(vwap,0) as [Apox VWP price], Holding,PrevHolding, PrevInvestment, 
+case when (Holding -PrevHolding =0)
+	Then (PrevInvestment)
+	else 
+	--((Holding - PrevHolding) *vwap) + 
+	PrevInvestment
+	end
+ as [Investment value] from #Temp1

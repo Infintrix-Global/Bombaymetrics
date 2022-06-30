@@ -106,6 +106,7 @@
     <Content Include="Images\investment-material.jpg" />
     <Content Include="Images\manufacturing.png" />
     <Content Include="Inventory\ItemMaster.aspx" />
+    <Content Include="IPO\Reports\InvestorSummaryReport.aspx" />
     <Content Include="IPO\Reports\InvestorProfitLoss.aspx" />
     <Content Include="IPO\Reports\WeeklyReport.aspx" />
     <Content Include="IPO\Reports\ShareHolderPANReport.aspx" />
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="Inventory\ItemMaster.aspx.designer.cs">
       <DependentUpon>ItemMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IPO\Reports\InvestorSummaryReport.aspx.cs">
+      <DependentUpon>InvestorSummaryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IPO\Reports\InvestorSummaryReport.aspx.designer.cs">
+      <DependentUpon>InvestorSummaryReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="IPO\Reports\InvestorProfitLoss.aspx.cs">
       <DependentUpon>InvestorProfitLoss.aspx</DependentUpon>

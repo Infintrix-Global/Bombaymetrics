@@ -42,8 +42,9 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="AsOnDate" HeaderText="As On Date" />
-                         <asp:BoundField DataField="TotalShares" HeaderText="Total Shares" />
-                         <asp:BoundField DataField="HoldingPercentage" HeaderText="Holding Percentage" />
+                        <asp:BoundField DataField="TotalShares" HeaderText="Total Shares" />
+                        <asp:BoundField DataField="HoldingPercentage" HeaderText="Holding Percentage" />
+                        
                     </Columns>
                 </asp:GridView>
             </div>

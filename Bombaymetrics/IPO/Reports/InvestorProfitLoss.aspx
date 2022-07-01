@@ -30,10 +30,18 @@
 
                 </div>
 
-                <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="true" CssClass="table  table-hover">
+                <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="false" CssClass="table  table-hover">
                     <EmptyDataTemplate>
                         <div class="text-center">No record found</div>
                     </EmptyDataTemplate>
+                    <Columns>
+                        <asp:BoundField DataField="Investment Date" HeaderText="Investment Date" />
+                        <asp:BoundField DataField="Qty" HeaderText="Qty" />
+                        <asp:BoundField DataField="Apox VWP price" HeaderText="Apox VWP price" />
+                        <asp:BoundField DataField="Holding" HeaderText="Holding" />
+                        <asp:BoundField DataField="Investment" DataFormatString="{0:N2}" HeaderText="Investment Value" />
+                        <asp:BoundField DataField="ProfitLoss" DataFormatString="{0:N2}" HeaderText="Profit Loss" />
+                    </Columns>
                 </asp:GridView>
             </div>
         </div>

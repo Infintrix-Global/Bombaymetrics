@@ -7,7 +7,7 @@
         <h2 class="text-center text-uppercase">Report</h2>
         <div class="card" style="margin: 0em 2em  0em 2em">
             <div class="card-header text-uppercase text-white">
-                <h5>Investor Holding Report</h5>
+                <h5>Investor Summary Report</h5>
             </div>
 
             <div class="card-body table-responsive">                
@@ -23,10 +23,10 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="AsOnDate" HeaderText="As On Date" />
-                         <asp:BoundField DataField="TotalShares" HeaderText="Total Shares" />
-                         <asp:BoundField DataField="HoldingPercentage" HeaderText="Holding Percentage" />
-                         <asp:BoundField DataField="Investment" HeaderText="Investment Value" />
-                         <asp:BoundField DataField="ProfitLoss" HeaderText="Profit Loss" />
+                         <asp:BoundField DataField="Holding" HeaderText="Holding" />
+                         <%--<asp:BoundField DataField="HoldingPercentage" HeaderText="Holding Percentage" />--%>
+                         <asp:BoundField DataField="Investment" DataFormatString="{0:N2}" HeaderText="Investment Value" />
+                         <asp:BoundField DataField="ProfitLoss" DataFormatString="{0:N2}" HeaderText="Profit Loss" />
                     </Columns>
                 </asp:GridView>
             </div>

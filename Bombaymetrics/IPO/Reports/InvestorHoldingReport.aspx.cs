@@ -5,6 +5,8 @@ using System.Configuration;
 using System.Data.OleDb;
 using System.Data.Common;
 using System.Globalization;
+using Bombaymetrics.BAL;
+using System.Collections.Specialized;
 
 namespace Bombaymetrics
 {
@@ -45,19 +47,18 @@ namespace Bombaymetrics
 
         }
         private void BindGridview()
-        {
-            string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(CS))
+        {           
+            General objGeneral = new General();
+            string d = AsOnDate.Value;
+            DateTime dt = DateTime.ParseExact(d, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            string newString = dt.ToString("MM/dd/yy");
+            NameValueCollection nv = new NameValueCollection();
+            nv.Add("AsOnDate", newString);
+            DataSet ds = objGeneral.GetDataSet("GetInvestorShareHoldingDatewiseReport",nv);
+           
+            if (ds != null && ds.Tables.Count>0)
             {
-                SqlCommand cmd = new SqlCommand("GetInvestorShareHoldingDatewiseReport", con);
-                string d = AsOnDate.Value;
-                DateTime dt = DateTime.ParseExact(d, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-                string newString = dt.ToString("MM/dd/yy");
-                //lblDate.Text = newString;
-                cmd.Parameters.Add(new SqlParameter("AsOnDate", newString));
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                GridView1.DataSource = cmd.ExecuteReader();
+                GridView1.DataSource = ds.Tables[0];
                 GridView1.DataBind();
             }
         }

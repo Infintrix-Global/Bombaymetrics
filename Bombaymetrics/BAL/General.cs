@@ -1,30 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data;
-using System.Data.SqlClient;
 using System.Collections.Specialized;
 using System.Configuration;
-using System.Text;
-using System.Security.Cryptography;
-using System.Web.Hosting;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
-using System.Globalization;
-using System.Net;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.Hosting;
 
 namespace Bombaymetrics.BAL
 {
-    public static class General
+    public class General
     {
         #region "Common functions"
 
-        static string CS = ConfigurationManager.ConnectionStrings["DBCS"].ToString();
+        string CS = ConfigurationManager.ConnectionStrings["DBCS"].ToString();
 
 
-        public static int GetDataInsertORUpdate(string storedProcedure, NameValueCollection nv)
+        public int GetDataInsertORUpdate(string storedProcedure, NameValueCollection nv)
         {
             int result = 0;
             using (SqlConnection con = new SqlConnection(CS))
@@ -62,7 +53,7 @@ namespace Bombaymetrics.BAL
             return result;
         }
 
-        public static void ErrorMessage(string msg)
+        public void ErrorMessage(string msg)
         {
             string ACPPath = HostingEnvironment.MapPath("~/log.txt");
             StreamWriter swExtLogFile = new StreamWriter(ACPPath, true);
@@ -72,7 +63,7 @@ namespace Bombaymetrics.BAL
             swExtLogFile.Close();
         }
 
-        public static int GetDataExecuteScaler(string storedProcedure, NameValueCollection nv)
+        public int GetDataExecuteScaler(string storedProcedure, NameValueCollection nv)
         {
             int result = 0;
 
@@ -104,6 +95,7 @@ namespace Bombaymetrics.BAL
                 }
                 catch (Exception ex)
                 {
+                    ErrorMessage(ex.StackTrace + ex.Message.ToString());
                     cmd.Connection.Close();
                 }
                 finally
@@ -115,7 +107,7 @@ namespace Bombaymetrics.BAL
             return result;
         }
 
-        public static long GetDataExecuteScalerRetObj(string storedProcedure, NameValueCollection nv)
+        public long GetDataExecuteScalerRetObj(string storedProcedure, NameValueCollection nv)
         {
             long result = 0;
             using (SqlConnection con = new SqlConnection(CS))
@@ -145,6 +137,7 @@ namespace Bombaymetrics.BAL
                 }
                 catch (Exception ex)
                 {
+                    ErrorMessage(ex.StackTrace + ex.Message.ToString());
                     cmd.Connection.Close();
                 }
                 finally
@@ -156,7 +149,7 @@ namespace Bombaymetrics.BAL
             return result;
         }
 
-        public static DataSet GetDataSet(string storedProcedure, NameValueCollection nv)
+        public DataSet GetDataSet(string storedProcedure, NameValueCollection nv)
         {
             DataSet ds = new DataSet();
 
@@ -185,6 +178,7 @@ namespace Bombaymetrics.BAL
                 }
                 catch (Exception ex)
                 {
+                    ErrorMessage(ex.StackTrace + ex.Message.ToString());
                     da.Dispose();
                     cmd.Connection.Close();
                 }
@@ -197,7 +191,7 @@ namespace Bombaymetrics.BAL
             return ds;
         }
 
-        public static DataTable GetDataTable(string storedProcedure, NameValueCollection nv)
+        public DataTable GetDataTable(string storedProcedure, NameValueCollection nv)
         {
             DataTable dt = new DataTable();
 

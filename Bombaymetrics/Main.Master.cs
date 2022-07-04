@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using Bombaymetrics.BAL;
+using System;
+using System.Collections.Specialized;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Bombaymetrics
 {
@@ -24,20 +21,12 @@ namespace Bombaymetrics
         }
         private void BindMenu()
         {
-
-            string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(CS))
+            General objGeneral = new General();
+            NameValueCollection nv = new NameValueCollection();
+            nv.Add("UserID", Session["UserID"].ToString());
+            DataSet ds = objGeneral.GetDataSet("GetMenu", nv);
+            if (ds != null && ds.Tables.Count > 0)
             {
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-
-                SqlCommand cmd = new SqlCommand("GetMenu", con);
-                cmd.Parameters.Add(new SqlParameter("@UserID", Session["UserID"]));
-                cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds, "Menu");
-
                 DataTable AllMenu = ds.Tables[0];
 
                 var MenuParent = (from DataRow dr in AllMenu.Rows
@@ -45,8 +34,6 @@ namespace Bombaymetrics
                                   select dr
                                );
                 DataTable dtMenu = MenuParent != null ? MenuParent.CopyToDataTable() : null;
-
-                //DataTable dtMenu = MenuParent;
 
                 foreach (DataRow row in dtMenu.Rows)
                 {

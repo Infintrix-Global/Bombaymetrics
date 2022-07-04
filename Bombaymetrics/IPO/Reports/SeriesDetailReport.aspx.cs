@@ -1,9 +1,7 @@
-﻿using System;
+﻿using Bombaymetrics.BAL;
+using System;
+using System.Collections.Specialized;
 using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Data.OleDb;
-using System.Data.Common;
 
 namespace Bombaymetrics
 {
@@ -19,13 +17,13 @@ namespace Bombaymetrics
 
         private void BindGridview()
         {
-            string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(CS))
+            General objGeneral = new General();
+            NameValueCollection nv = new NameValueCollection();
+            DataSet ds = objGeneral.GetDataSet("GetSeriesDetailReport", nv);
+
+            if (ds != null && ds.Tables.Count > 0)
             {
-                SqlCommand cmd = new SqlCommand("GetSeriesDetailReport", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                GridView1.DataSource = cmd.ExecuteReader();
+                GridView1.DataSource = ds.Tables[0];
                 GridView1.DataBind();
             }
         }

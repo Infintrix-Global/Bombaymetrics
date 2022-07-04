@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.OleDb;
 using System.Data.Common;
+using Bombaymetrics.BAL;
+using System.Collections.Specialized;
 
 namespace Bombaymetrics
 {
@@ -39,19 +41,19 @@ namespace Bombaymetrics
 
         private void BindGridview()
         {
-            string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(CS))
+            General objGeneral = new General();
+            NameValueCollection nv = new NameValueCollection();
+            nv.Add("FromDate", FromDate.Value);
+            nv.Add("ToDate", ToDate.Value);           
+            DataSet ds = objGeneral.GetDataSet("GetWeekAverageDateWiseReport", nv);
+
+            if (ds != null && ds.Tables.Count > 0)
             {
-                SqlCommand cmd = new SqlCommand("GetWeekAverageDateWiseReport", con);
-                cmd.Parameters.Add(new SqlParameter("FromDate", FromDate.Value));
-                cmd.Parameters.Add(new SqlParameter("ToDate", ToDate.Value));
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                GridView1.DataSource = cmd.ExecuteReader();
+                GridView1.DataSource = ds.Tables[0];
                 GridView1.DataBind();
-                con.Close();
-            }
+            }           
         }
+
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             BindGridview();

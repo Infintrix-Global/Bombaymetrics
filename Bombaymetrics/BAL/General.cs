@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
 using System.Data;
@@ -15,23 +16,14 @@ namespace Bombaymetrics.BAL
         string CS = ConfigurationManager.ConnectionStrings["DBCS"].ToString();
 
 
-        public int GetDataInsertORUpdate(string storedProcedure, NameValueCollection nv)
+        public int GetDataInsertORUpdate(string storedProcedure, SqlParameter[] Params)
         {
             int result = 0;
             using (SqlConnection con = new SqlConnection(CS))
             {
                 SqlCommand cmd = new SqlCommand(storedProcedure, con);
 
-                for (int i = 0; i < nv.Count; i++)
-                {
-                    SqlParameter Param;
-                    if ((nv.Get(nv.AllKeys[i])) == null)
-                        Param = new SqlParameter(nv.AllKeys[i], DBNull.Value);
-                    else
-                        Param = new SqlParameter(nv.AllKeys[i], nv.Get(nv.AllKeys[i]));
-                    cmd.Parameters.Add(Param);
-                }
-
+                cmd.Parameters.AddRange(Params);
                 cmd.CommandTimeout = 0;
                 cmd.CommandType = CommandType.StoredProcedure;
                 try

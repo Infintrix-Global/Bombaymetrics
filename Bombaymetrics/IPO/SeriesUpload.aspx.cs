@@ -1,11 +1,11 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
+﻿using Bombaymetrics.BAL;
+using System;
+using System.Collections.Specialized;
 using System.Configuration;
+using System.Data;
 using System.Data.OleDb;
-using System.Data.Common;
+using System.Data.SqlClient;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Bombaymetrics
 {
@@ -19,17 +19,15 @@ namespace Bombaymetrics
             }
         }
 
-
-
         private void BindGridview()
         {
-            string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(CS))
+            General objGeneral = new General();
+            NameValueCollection nv = new NameValueCollection();
+            DataSet ds = objGeneral.GetDataSet("GetSeries", nv);
+
+            if (ds != null && ds.Tables.Count > 0)
             {
-                SqlCommand cmd = new SqlCommand("GetSeries", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                GridView1.DataSource = cmd.ExecuteReader();
+                GridView1.DataSource = ds.Tables[0];
                 GridView1.DataBind();
             }
         }
@@ -58,43 +56,60 @@ namespace Bombaymetrics
                         // Create DbDataReader to Data Worksheet
                         OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
                         adapter.Fill(dt);
-                        // SQL Server Connection String
-                        string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
 
-                        //call SP
-                        using (SqlConnection SQLcon = new SqlConnection(CS))
+                        General objGeneral = new General();
+                        foreach (DataRow dr in dt.Rows)
                         {
-                            using (SqlCommand SQLcmd = new SqlCommand("InsertSeries", SQLcon))
-                            {
-                                SQLcon.Open();
-                                foreach (DataRow dr in dt.Rows)
-                                {
-                                    SQLcmd.CommandType = CommandType.StoredProcedure;
-                                    SQLcmd.Parameters.Clear();
-                                    if (dr[0] != null)
-                                    {
-                                        SQLcmd.Parameters.Add("@AsOnDate", SqlDbType.Date).Value = dr[0];
-                                        SQLcmd.Parameters.Add("@Series", SqlDbType.VarChar).Value = dr[1];
-                                        SQLcmd.Parameters.Add("@Open", SqlDbType.Decimal).Value = dr[2];
-                                        SQLcmd.Parameters.Add("@High", SqlDbType.Decimal).Value = dr[3];
-                                        SQLcmd.Parameters.Add("@Low", SqlDbType.Decimal).Value = dr[4];
-                                        SQLcmd.Parameters.Add("@PrevClose", SqlDbType.Decimal).Value = dr[5];
-                                        SQLcmd.Parameters.Add("@Ltp", SqlDbType.Decimal).Value = dr[6];
-                                        SQLcmd.Parameters.Add("@Close", SqlDbType.Decimal).Value = dr[7];
-                                        SQLcmd.Parameters.Add("@vwap", SqlDbType.Decimal).Value = dr[8];
-                                        SQLcmd.Parameters.Add("@52WH", SqlDbType.Decimal).Value = dr[9];
-                                        SQLcmd.Parameters.Add("@52WL", SqlDbType.Decimal).Value = dr[10];
-                                        SQLcmd.Parameters.Add("@Volume", SqlDbType.Decimal).Value = dr[11];
-                                        SQLcmd.Parameters.Add("@Value", SqlDbType.Decimal).Value = dr[12];
-                                        SQLcmd.Parameters.Add("@NoofTrades", SqlDbType.Int).Value = dr[13];
-                                        SQLcmd.Parameters.Add("@PriceBand", SqlDbType.VarChar).Value = dr[14];
+                            SqlParameter[] SQLcmdParameters = new SqlParameter[15];
+                            SqlParameter Param = new SqlParameter("@AsOnDate", SqlDbType.Date);
+                            Param.Value = dr[0];
+                            SQLcmdParameters[0] = Param;
+                            Param = new SqlParameter("@Series", SqlDbType.VarChar);
+                            Param.Value = dr[1];
+                            SQLcmdParameters[1] = Param;
+                            Param = new SqlParameter("@Open", SqlDbType.Decimal);
+                            Param.Value = dr[2];
+                            SQLcmdParameters[2] = Param;
+                            Param = new SqlParameter("@High", SqlDbType.Decimal);
+                            Param.Value = dr[3];
+                            SQLcmdParameters[3] = Param;
+                            Param = new SqlParameter("@Low", SqlDbType.Decimal);
+                            Param.Value = dr[4];
+                            SQLcmdParameters[4] = Param;
+                            Param = new SqlParameter("@PrevClose", SqlDbType.Decimal);
+                            Param.Value = dr[5];
+                            SQLcmdParameters[5] = Param;
+                            Param = new SqlParameter("@Ltp", SqlDbType.Decimal);
+                            Param.Value = dr[6];
+                            SQLcmdParameters[6] = Param;
+                            Param = new SqlParameter("@Close", SqlDbType.Decimal);
+                            Param.Value = dr[7];
+                            SQLcmdParameters[7] = Param;
+                            Param = new SqlParameter("@vwap", SqlDbType.Decimal);
+                            Param.Value = dr[8];
+                            SQLcmdParameters[8] = Param;
+                            Param = new SqlParameter("@52WH", SqlDbType.Decimal);
+                            Param.Value = dr[9];
+                            SQLcmdParameters[9] = Param;
+                            Param = new SqlParameter("@52WL", SqlDbType.Decimal);
+                            Param.Value = dr[10];
+                            SQLcmdParameters[10] = Param;
+                            Param = new SqlParameter("@Volume", SqlDbType.Decimal);
+                            Param.Value = dr[11];
+                            SQLcmdParameters[11] = Param;
+                            Param = new SqlParameter("@Value", SqlDbType.Decimal);
+                            Param.Value = dr[12];
+                            SQLcmdParameters[12] = Param;
+                            Param = new SqlParameter("@NoofTrades", SqlDbType.Int);
+                            Param.Value = dr[13];
+                            SQLcmdParameters[13] = Param;
+                            Param = new SqlParameter("@PriceBand", SqlDbType.VarChar);
+                            Param.Value = dr[14];
+                            SQLcmdParameters[14] = Param;
 
-                                        SQLcmd.ExecuteNonQuery();
-                                    }
-                                }
-                                SQLcon.Close();
-                            }
+                            objGeneral.GetDataInsertORUpdate("InsertSeries", SQLcmdParameters);
                         }
+                        
                         BindGridview();
                         lblMessage.Text = "Your file uploaded successfully.";
                         lblMessage.ForeColor = System.Drawing.Color.Green;

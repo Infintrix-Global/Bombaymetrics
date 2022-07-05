@@ -1,9 +1,10 @@
-﻿using System;
-using System.Data;
-using System.Data.SqlClient;
+﻿using Bombaymetrics.BAL;
+using System;
+using System.Collections.Specialized;
 using System.Configuration;
+using System.Data;
 using System.Data.OleDb;
-using System.Data.Common;
+using System.Data.SqlClient;
 using System.Web.UI;
 
 namespace Bombaymetrics
@@ -20,13 +21,13 @@ namespace Bombaymetrics
 
         private void BindGridview()
         {
-            string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(CS))
+            General objGeneral = new General();
+            NameValueCollection nv = new NameValueCollection();
+            DataSet ds = objGeneral.GetDataSet("GetFolio", nv);
+
+            if (ds != null && ds.Tables.Count > 0)
             {
-                SqlCommand cmd = new SqlCommand("GetFolio", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                con.Open();
-                GridView1.DataSource = cmd.ExecuteReader();
+                GridView1.DataSource = ds.Tables[0];
                 GridView1.DataBind();
             }
         }
@@ -55,42 +56,51 @@ namespace Bombaymetrics
                         // Create DbDataReader to Data Worksheet
                         OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
                         adapter.Fill(dt);
-                        // SQL Server Connection String
-                        string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-                       
-                      
-                            //call SP
-                            using (SqlConnection SQLcon = new SqlConnection(CS))
-                            {
-                                using (SqlCommand SQLcmd = new SqlCommand("InsertFolio", SQLcon))
-                                {
-                                SQLcon.Open();
-                                foreach (DataRow dr in dt.Rows)
-                                {
-                                    SQLcmd.CommandType = CommandType.StoredProcedure;
-                                    SQLcmd.Parameters.Clear();
-                                    SQLcmd.Parameters.Add("@AsOnDate", SqlDbType.Date).Value = dr[0];
-                                    SQLcmd.Parameters.Add("@FolioNo", SqlDbType.VarChar).Value = dr[1];
-                                    SQLcmd.Parameters.Add("@Name", SqlDbType.VarChar).Value = dr[2];
-                                    SQLcmd.Parameters.Add("@Holding", SqlDbType.Decimal).Value = dr[3];
-                                    SQLcmd.Parameters.Add("@Category", SqlDbType.VarChar).Value = dr[4];
-                                    SQLcmd.Parameters.Add("@LockingHolding", SqlDbType.Decimal).Value = dr[5];
-                                    SQLcmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = dr[6];
-                                    SQLcmd.Parameters.Add("@PanNo", SqlDbType.VarChar).Value = dr[7];
-                                    SQLcmd.Parameters.Add("@PhoneNo", SqlDbType.VarChar).Value = dr[8];
-                                    SQLcmd.Parameters.Add("@PledgeQty", SqlDbType.Decimal).Value = dr[9];
 
-                                    SQLcmd.ExecuteNonQuery();
-                                }
-                                SQLcon.Close();
-                            }
+                        General objGeneral = new General();
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            SqlParameter[] SQLcmdParameters = new SqlParameter[10];
+                            SqlParameter Param = new SqlParameter("@AsOnDate", SqlDbType.Date);
+                            Param.Value = dr[0];
+                            SQLcmdParameters[0] = Param;                            
+                            Param = new SqlParameter("@FolioNo", SqlDbType.VarChar);
+                            Param.Value = dr[1];
+                            SQLcmdParameters[1] = Param;
+                            Param = new SqlParameter("@Name", SqlDbType.VarChar);
+                            Param.Value = dr[2];
+                            SQLcmdParameters[2] = Param;
+                            Param = new SqlParameter("@Holding", SqlDbType.Decimal);
+                            Param.Value = dr[3];
+                            SQLcmdParameters[3] = Param;
+                            Param = new SqlParameter("@Category", SqlDbType.VarChar);
+                            Param.Value = dr[4];
+                            SQLcmdParameters[4] = Param;
+                            Param = new SqlParameter("@LockingHolding", SqlDbType.Decimal);
+                            Param.Value = dr[5];
+                            SQLcmdParameters[5] = Param;
+                            Param = new SqlParameter("@Email", SqlDbType.VarChar);
+                            Param.Value = dr[6];
+                            SQLcmdParameters[6] = Param;
+                            Param = new SqlParameter("@PanNo", SqlDbType.VarChar);
+                            Param.Value = dr[7];
+                            SQLcmdParameters[7] = Param;
+                            Param = new SqlParameter("@PhoneNo", SqlDbType.VarChar);
+                            Param.Value = dr[8];
+                            SQLcmdParameters[8] = Param;
+                            Param = new SqlParameter("@PledgeQty", SqlDbType.Decimal);
+                            Param.Value = dr[9];
+                            SQLcmdParameters[9] = Param;
+
+                            objGeneral.GetDataInsertORUpdate("InsertFolio", SQLcmdParameters);
                         }
-                       
-                        BindGridview();
-                        lblMessage.Text = "Your file uploaded successfully.";
-                        lblMessage.ForeColor = System.Drawing.Color.Green;
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showModal();", true);
                     }
+
+                    BindGridview();
+                    lblMessage.Text = "Your file uploaded successfully.";
+                    lblMessage.ForeColor = System.Drawing.Color.Green;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showModal();", true);
+
                 }
                 catch (Exception ex)
                 {

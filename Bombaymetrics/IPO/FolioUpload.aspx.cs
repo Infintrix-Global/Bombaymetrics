@@ -22,8 +22,7 @@ namespace Bombaymetrics
         private void BindGridview()
         {
             General objGeneral = new General();
-            NameValueCollection nv = new NameValueCollection();
-            DataSet ds = objGeneral.GetDataSet("GetFolio", nv);
+            DataSet ds = objGeneral.GetDataSet("GetFolio");
 
             if (ds != null && ds.Tables.Count > 0)
             {

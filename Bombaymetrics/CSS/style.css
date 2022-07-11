@@ -181,3 +181,11 @@ div.dataTables_wrapper div.dataTables_length label {
     font-size: 18px;
     font-weight:bold;
 }
+input.delete-button {
+    background-color:red;
+    border-color: white;
+}
+input.edit-button {
+    background-color: green;
+    border-color: white;
+}

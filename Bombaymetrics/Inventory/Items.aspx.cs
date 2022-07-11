@@ -5,8 +5,9 @@ using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Web.UI;
-
+using System.Web.UI.WebControls;
 
 namespace Bombaymetrics.Inventory
 {
@@ -22,8 +23,7 @@ namespace Bombaymetrics.Inventory
         private void BindGridview()
         {
             General objGeneral = new General();
-            NameValueCollection nv = new NameValueCollection();
-            DataSet ds = objGeneral.GetDataSet("GetItems", nv);
+            DataSet ds = objGeneral.GetDataSet("GetItems");
 
             if (ds != null && ds.Tables.Count > 0)
             {
@@ -102,5 +102,38 @@ namespace Bombaymetrics.Inventory
                 }
             }
         }
+        protected void GridView1_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {              
+                foreach (Button button in e.Row.Cells[1].Controls.OfType<Button>())
+                {
+                    if (button.CommandName == "Delete")
+                    {
+                        button.Attributes["onclick"] = "if(!confirm('Do you want to delete this record?')){ return false; };";
+                    }
+                }
+            }
+        }
+
+        protected void GridView1_OnRowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int id = Convert.ToInt32(e.Keys[0]);
+            General objGeneral = new General();
+
+            SqlParameter[] SQLcmdParameters = new SqlParameter[1];
+            SqlParameter Param = new SqlParameter("@ItemID", SqlDbType.Int);
+            Param.Value = id;
+            SQLcmdParameters[0] = Param;
+            objGeneral.GetDataInsertORUpdate("DeleteItem", SQLcmdParameters);
+
+            BindGridview();
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            Response.Redirect("~/Inventory/ItemMaster.aspx?ItemID=" + GridView1.DataKeys[e.NewEditIndex].Value.ToString());
+        }
+
     }
 }

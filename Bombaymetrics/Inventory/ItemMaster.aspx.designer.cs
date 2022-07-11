@@ -15,6 +15,15 @@ namespace Bombaymetrics.Inventory
     {
 
         /// <summary>
+        /// header control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl header;
+
+        /// <summary>
         /// txtItemNo control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Bombaymetrics.Inventory
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredfieldvalidator1;
+
+        /// <summary>
+        /// ddlGoodsService control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlGoodsService;
 
         /// <summary>
         /// txtItemDescription control.
@@ -51,13 +69,13 @@ namespace Bombaymetrics.Inventory
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredfieldvalidator2;
 
         /// <summary>
-        /// txtUOM control.
+        /// ddlUOM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUOM;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlUOM;
 
         /// <summary>
         /// requiredfieldvalidator3 control.
@@ -69,13 +87,13 @@ namespace Bombaymetrics.Inventory
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredfieldvalidator3;
 
         /// <summary>
-        /// txtGSTRate control.
+        /// ddlGSTRate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtGSTRate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGSTRate;
 
         /// <summary>
         /// requiredfieldvalidator4 control.
@@ -105,13 +123,13 @@ namespace Bombaymetrics.Inventory
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredfieldvalidator5;
 
         /// <summary>
-        /// txtHSNCode control.
+        /// ddlHSNCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHSNCode;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHSNCode;
 
         /// <summary>
         /// requiredfieldvalidator6 control.
@@ -130,5 +148,14 @@ namespace Bombaymetrics.Inventory
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAdd;
+
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }

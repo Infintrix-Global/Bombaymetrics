@@ -183,6 +183,36 @@ namespace Bombaymetrics.BAL
             return ds;
         }
 
+        public DataSet GetDataSet(string storedProcedure)
+        {
+            DataSet ds = new DataSet();
+
+            using (SqlConnection con = new SqlConnection(CS))
+            {
+                SqlCommand cmd = new SqlCommand(storedProcedure, con);
+                cmd.CommandTimeout = 0;
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                try
+                {
+                    con.Open();
+                    da.Fill(ds);
+                }
+                catch (Exception ex)
+                {
+                    ErrorMessage(ex.StackTrace + ex.Message.ToString());
+                    da.Dispose();
+                    cmd.Connection.Close();
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            return ds;
+        }
+
         public DataTable GetDataTable(string storedProcedure, NameValueCollection nv)
         {
             DataTable dt = new DataTable();

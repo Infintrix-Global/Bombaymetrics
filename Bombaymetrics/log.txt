@@ -54,3 +54,16 @@
    at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
    at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
    at Bombaymetrics.BAL.General.GetDataSet(String storedProcedure, NameValueCollection nv) in D:\Nidhi\Projects\Bombaymetrics\Bombaymetrics\BAL\General.cs:line 177Procedure or function GetInvestorProfitLossReport has too many arguments specified. at 7/4/2022 5:50:52 PM
+*****Error message=****Sql Error is=Error converting data type numeric to decimal. at 7/8/2022 6:16:03 PM
+*****Error message=****Sql Error is=Error converting data type numeric to decimal. at 7/8/2022 6:16:03 PM
+*****Error message=****Sql Error is=Error converting data type numeric to decimal. at 7/8/2022 6:16:54 PM
+*****Error message=****Sql Error is=Error converting data type numeric to decimal. at 7/8/2022 6:17:12 PM
+*****Error message=****Sql Error is=Error converting data type numeric to decimal. at 7/8/2022 6:21:05 PM
+*****Error message=****Sql Error is=Error converting data type numeric to decimal. at 7/8/2022 6:32:09 PM
+*****Error message=****Sql Error is=Error converting data type numeric to decimal. at 7/8/2022 6:32:12 PM
+*****Error message=****Sql Error is=Arithmetic overflow error converting nvarchar to data type numeric.
+The statement has been terminated. at 7/8/2022 6:35:30 PM
+*****Error message=****Sql Error is=Arithmetic overflow error converting nvarchar to data type numeric.
+The statement has been terminated. at 7/8/2022 6:35:32 PM
+*****Error message=****Sql Error is=Cannot insert the value NULL into column 'HsnCode', table 'Bombaymetrics_UAT.dbo.ItemMaster'; column does not allow nulls. INSERT fails.
+The statement has been terminated. at 7/8/2022 6:38:34 PM

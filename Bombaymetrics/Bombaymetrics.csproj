@@ -101,6 +101,7 @@
   <ItemGroup>
     <Content Include="CSS\style.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="Inventory\Items.aspx" />
     <Content Include="IPO\FolioUpload.aspx" />
     <Content Include="Images\9859.jpg" />
     <Content Include="Images\BM-Supply-Chain-logo.png" />
@@ -143,6 +144,13 @@
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Items.aspx.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\Items.aspx.designer.cs">
+      <DependentUpon>Items.aspx</DependentUpon>
     </Compile>
     <Compile Include="IPO\FolioUpload.aspx.cs">
       <DependentUpon>FolioUpload.aspx</DependentUpon>

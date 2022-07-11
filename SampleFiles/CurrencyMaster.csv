@@ -1,0 +1,181 @@
+CurrencyID,CurrencyCode,CurrencyName
+1,BDT,Bangladeshi taka
+2,AED,United Arab Emirates dirham
+3,AFN,Afghan afghani
+4,ALL,Albanian lek
+5,AMD,Armenian dram
+6,ANG,Netherlands Antillean guilder
+7,AOA,Angolan kwanza
+8,ARS,Argentine peso
+9,AUD,Australian dollar
+10,AWG,Aruban florin
+11,AZN,Azerbaijani manat
+12,BAM,Bosnia and Herzegovina convertible mark
+13,BBD,Barbados dollar
+14,BDT,Bangladeshi taka
+15,BGN,Bulgarian lev
+16,BHD,Bahraini dinar
+17,BIF,Burundian franc
+18,BMD,Bermudian dollar
+19,BND,Brunei dollar
+20,BOB,Boliviano
+21,BOV,Bolivian Mvdol (funds code)
+22,BRL,Brazilian real
+23,BSD,Bahamian dollar
+24,BTN,Bhutanese ngultrum
+25,BWP,Botswana pula
+26,BYN,Belarusian ruble
+27,BZD,Belize dollar
+28,CAD,Canadian dollar
+29,CDF,Congolese franc
+30,CHE,WIRÿEuro (complementary currency)
+31,CHF,Swiss franc
+32,CHW,WIRÿFranc (complementary currency)
+33,CLF,Unidad de Fomentoÿ(funds code)
+34,CLP,Chilean peso
+35,CNY,Renminbi (Chinese) yuan
+36,COP,Colombian peso
+37,COU,Unidad de Valor Real (UVR) (funds code)
+38,CRC,Costa Rican colon
+39,CUC,Cuban convertible peso
+40,CUP,Cuban peso
+41,CVE,Cape Verdean escudo
+42,CZK,Czech koruna
+43,DJF,Djiboutian franc
+44,DKK,Danish krone
+45,DOP,Dominican peso
+46,DZD,Algerian dinar
+47,EGP,Egyptian pound
+48,ERN,Eritrean nakfa
+49,ETB,Ethiopian birr
+50,EUR,Euro
+51,FJD,Fiji dollar
+52,FKP,Falkland Islands pound
+53,GBP,Pound sterling
+54,GEL,Georgian lari
+55,GHS,Ghanaian cedi
+56,GIP,Gibraltar pound
+57,GMD,Gambian dalasi
+58,GNF,Guinean franc
+59,GTQ,Guatemalan quetzal
+60,GYD,Guyanese dollar
+61,HKD,Hong Kong dollar
+62,HNL,Honduran lempira
+63,HRK,Croatian kuna
+64,HTG,Haitian gourde
+65,HUF,Hungarian forint
+66,IDR,Indonesian rupiah
+67,ILS,Israeli new shekel
+68,INR,Indian rupee
+69,IQD,Iraqi dinar
+70,IRR,Iranian rial
+71,ISK,Icelandic kr¢na
+72,JMD,Jamaican dollar
+73,JOD,Jordanian dinar
+74,JPY,Japanese yen
+75,KES,Kenyan shilling
+76,KGS,Kyrgyzstani som
+77,KHR,Cambodian riel
+78,KMF,Comoro franc
+79,KPW,North Korean won
+80,KRW,South Korean won
+81,KWD,Kuwaiti dinar
+82,KYD,Cayman Islands dollar
+83,KZT,Kazakhstani tenge
+84,LAK,Lao kip
+85,LBP,Lebanese pound
+86,LKR,Sri Lankan rupee
+87,LRD,Liberian dollar
+88,LSL,Lesotho loti
+89,LYD,Libyan dinar
+90,MAD,Moroccan dirham
+91,MDL,Moldovan leu
+92,MGA,Malagasy ariary
+93,MKD,Macedonian denar
+94,MMK,Myanmar kyat
+95,MNT,Mongolian t”gr”g
+96,MOP,Macanese pataca
+97,MRU,Mauritanian ouguiya
+98,MUR,Mauritian rupee
+99,MVR,Maldivian rufiyaa
+100,MWK,Malawian kwacha
+101,MXN,Mexican peso
+102,MXV,Mexican Unidad de Inversionÿ(UDI) (funds code)
+103,MYR,Malaysian ringgit
+104,MZN,Mozambican metical
+105,NAD,Namibian dollar
+106,NGN,Nigerian naira
+107,NIO,Nicaraguan c¢rdoba
+108,NOK,Norwegian krone
+109,NPR,Nepalese rupee
+110,NZD,New Zealand dollar
+111,OMR,Omani rial
+112,PAB,Panamanian balboa
+113,PEN,Peruvian sol
+114,PGK,Papua New Guinean kina
+115,PHP,Philippine peso
+116,PKR,Pakistani rupee
+117,PLN,Polish zloty
+118,PYG,Paraguayan guaran¡
+119,QAR,Qatari riyal
+120,RON,Romanian leu
+121,RSD,Serbian dinar
+122,RUB,Russian ruble
+123,RWF,Rwandan franc
+124,SAR,Saudi riyal
+125,SBD,Solomon Islands dollar
+126,SCR,Seychelles rupee
+127,SDG,Sudanese pound
+128,SEK,Swedish krona/kronor
+129,SGD,Singapore dollar
+130,SHP,Saint Helena pound
+131,SLL,Sierra Leonean leone
+132,SOS,Somali shilling
+133,SRD,Surinamese dollar
+134,SSP,South Sudanese pound
+135,STN,S?o Tom‚ and Pr¡ncipe dobra
+136,SVC,Salvadoran col¢n
+137,SYP,Syrian pound
+138,SZL,Swazi lilangeni
+139,THB,Thai baht
+140,TJS,Tajikistani somoni
+141,TMT,Turkmenistan manat
+142,TND,Tunisian dinar
+143,TOP,Tongan pa?anga
+144,TRY,Turkish lira
+145,TTD,Trinidad and Tobago dollar
+146,TWD,New Taiwan dollar
+147,TZS,Tanzanian shilling
+148,UAH,Ukrainian hryvnia
+149,UGX,Ugandan shilling
+150,USD,United States dollar
+151,USN,United States dollar (next day) (funds code)
+152,UYI,Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code)
+153,UYU,Uruguayan peso
+154,UYW,Unidad previsional
+155,UZS,Uzbekistan som
+156,VES,Venezuelan bol¡var soberano
+157,VND,Vietnamese d?ng
+158,VUV,Vanuatu vatu
+159,WST,Samoan tala
+160,XAF,CFA franc BEAC
+161,XAG,Silverÿ(oneÿtroy ounce)
+162,XAU,Goldÿ(oneÿtroy ounce)
+163,XBA,European Composite Unitÿ(EURCO) (bond market unit)
+164,XBB,European Monetary Unitÿ(E.M.U.-6) (bond market unit)
+165,XBC,European Unit of Account 9ÿ(E.U.A.-9) (bond market unit)
+166,XBD,European Unit of Account 17ÿ(E.U.A.-17) (bond market unit)
+167,XCD,East Caribbean dollar
+168,XDR,Special drawing rights
+169,XOF,CFA franc BCEAO
+170,XPD,Palladiumÿ(oneÿtroy ounce)
+171,XPF,CFP francÿ(franc Pacifique)
+172,XPT,Platinumÿ(oneÿtroy ounce)
+173,XSU,SUCRE
+174,XTS,Code reserved for testing
+175,XUA,ADB Unit of Account
+176,XXX,No currency
+177,YER,Yemeni rial
+178,ZAR,South African rand
+179,ZMW,Zambian kwacha
+180,ZWL,Zimbabwean dollar

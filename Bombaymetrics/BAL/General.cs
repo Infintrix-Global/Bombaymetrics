@@ -160,7 +160,7 @@ namespace Bombaymetrics.BAL
 
                 }
 
-                cmd.CommandTimeout = 0;
+                cmd.CommandTimeout = 600;
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 try

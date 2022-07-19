@@ -54,6 +54,8 @@ namespace Bombaymetrics.Inventory
                 objGeneral.GetDataInsertORUpdate("InsertCurrency", SQLcmdParameters);
 
                 BindGridview();
+                txtCurrencyCode.Text = "";
+                txtCurrencyName.Text = "";
             }
         }
 

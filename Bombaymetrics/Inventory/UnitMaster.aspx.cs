@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Bombaymetrics.Inventory
 {
-    public partial class CountryMaster : System.Web.UI.Page
+    public partial class UnitMaster : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace Bombaymetrics.Inventory
         {
             General objGeneral = new General();
 
-            DataSet ds = objGeneral.GetDataSet("GetCountries");
+            DataSet ds = objGeneral.GetDataSet("GetUnits");
 
             if (ds != null && ds.Tables.Count > 0)
             {
@@ -44,18 +44,18 @@ namespace Bombaymetrics.Inventory
                 General objGeneral = new General();
 
                 SqlParameter[] SQLcmdParameters = new SqlParameter[2];
-                SqlParameter Param = new SqlParameter("@CountryCode", SqlDbType.VarChar);
-                Param.Value = txtCountryCode.Text;
+                SqlParameter Param = new SqlParameter("@UnitCode", SqlDbType.VarChar);
+                Param.Value = txtUnitCode.Text;
                 SQLcmdParameters[0] = Param;
-                Param = new SqlParameter("@CountryName", SqlDbType.VarChar);
-                Param.Value = txtCountryName.Text;
+                Param = new SqlParameter("@UnitDescription", SqlDbType.VarChar);
+                Param.Value = txtUnitDescription.Text;
                 SQLcmdParameters[1] = Param;
 
-                objGeneral.GetDataInsertORUpdate("InsertCountry", SQLcmdParameters);
+                objGeneral.GetDataInsertORUpdate("InsertUnit", SQLcmdParameters);
 
                 BindGridview();
-                txtCountryCode.Text = "";
-                txtCountryName.Text = "";
+                txtUnitCode.Text = "";
+                txtUnitDescription.Text = "";
             }
         }
 
@@ -79,10 +79,10 @@ namespace Bombaymetrics.Inventory
             General objGeneral = new General();
 
             SqlParameter[] SQLcmdParameters = new SqlParameter[1];
-            SqlParameter Param = new SqlParameter("@CountryID", SqlDbType.Int);
+            SqlParameter Param = new SqlParameter("@UnitID", SqlDbType.Int);
             Param.Value = id;
             SQLcmdParameters[0] = Param;
-            objGeneral.GetDataInsertORUpdate("DeleteCountry", SQLcmdParameters);
+            objGeneral.GetDataInsertORUpdate("DeleteUnit", SQLcmdParameters);
 
             BindGridview();
         }
@@ -93,25 +93,25 @@ namespace Bombaymetrics.Inventory
             BindGridview();
         }
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {            
+        {
             GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
             int id = Convert.ToInt32(e.Keys[0]);
             TextBox txtCode = (TextBox)row.Cells[3].Controls[0];
-            TextBox txtName = (TextBox)row.Cells[4].Controls[0];
+            TextBox txtDescription = (TextBox)row.Cells[4].Controls[0];
             General objGeneral = new General();
 
             SqlParameter[] SQLcmdParameters = new SqlParameter[3];
-            SqlParameter Param = new SqlParameter("@CountryID", SqlDbType.Int);
+            SqlParameter Param = new SqlParameter("@UnitID", SqlDbType.Int);
             Param.Value = id;
             SQLcmdParameters[0] = Param;
-            Param = new SqlParameter("@CountryCode", SqlDbType.VarChar);
+            Param = new SqlParameter("@UnitCode", SqlDbType.VarChar);
             Param.Value = txtCode.Text;
             SQLcmdParameters[1] = Param;
-            Param = new SqlParameter("@CountryName", SqlDbType.VarChar);
-            Param.Value = txtName.Text;
+            Param = new SqlParameter("@UnitDescription", SqlDbType.VarChar);
+            Param.Value = txtDescription.Text;
             SQLcmdParameters[2] = Param;
 
-            objGeneral.GetDataInsertORUpdate("UpdateCountry", SQLcmdParameters);
+            objGeneral.GetDataInsertORUpdate("UpdateUnit", SQLcmdParameters);
             GridView1.EditIndex = -1;
             BindGridview();
         }
@@ -120,6 +120,5 @@ namespace Bombaymetrics.Inventory
             GridView1.EditIndex = -1;
             BindGridview();
         }
-
     }
 }

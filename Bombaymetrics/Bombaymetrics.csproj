@@ -104,8 +104,13 @@
     <Content Include="Inventory\CountryMaster.aspx" />
     <Content Include="Inventory\CurrencyMaster.aspx" />
     <Content Include="Inventory\Items.aspx" />
+    <Content Include="Inventory\UnitMaster.aspx" />
     <Content Include="Inventory\PortMaster.aspx" />
     <Content Include="Inventory\StateMaster.aspx" />
+    <Content Include="Inventory\DocumentTypeMaster.aspx" />
+    <Content Include="Inventory\TransportModeMaster.aspx" />
+    <Content Include="Inventory\TaxRateMaster.aspx" />
+    <Content Include="Inventory\SupplyTypeMaster.aspx" />
     <Content Include="IPO\FolioUpload.aspx" />
     <Content Include="Images\9859.jpg" />
     <Content Include="Images\BM-Supply-Chain-logo.png" />
@@ -170,6 +175,13 @@
     <Compile Include="Inventory\Items.aspx.designer.cs">
       <DependentUpon>Items.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\UnitMaster.aspx.cs">
+      <DependentUpon>UnitMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\UnitMaster.aspx.designer.cs">
+      <DependentUpon>UnitMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inventory\PortMaster.aspx.cs">
       <DependentUpon>PortMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +195,34 @@
     </Compile>
     <Compile Include="Inventory\StateMaster.aspx.designer.cs">
       <DependentUpon>StateMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\DocumentTypeMaster.aspx.cs">
+      <DependentUpon>DocumentTypeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\DocumentTypeMaster.aspx.designer.cs">
+      <DependentUpon>DocumentTypeMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\TransportModeMaster.aspx.cs">
+      <DependentUpon>TransportModeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\TransportModeMaster.aspx.designer.cs">
+      <DependentUpon>TransportModeMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\TaxRateMaster.aspx.cs">
+      <DependentUpon>TaxRateMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\TaxRateMaster.aspx.designer.cs">
+      <DependentUpon>TaxRateMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\SupplyTypeMaster.aspx.cs">
+      <DependentUpon>SupplyTypeMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\SupplyTypeMaster.aspx.designer.cs">
+      <DependentUpon>SupplyTypeMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="IPO\FolioUpload.aspx.cs">
       <DependentUpon>FolioUpload.aspx</DependentUpon>

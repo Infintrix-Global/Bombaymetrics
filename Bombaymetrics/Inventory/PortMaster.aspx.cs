@@ -54,6 +54,8 @@ namespace Bombaymetrics.Inventory
                 objGeneral.GetDataInsertORUpdate("InsertPort", SQLcmdParameters);
 
                 BindGridview();
+                txtPortCode.Text = "";
+                txtPortName.Text = "";
             }
         }
 

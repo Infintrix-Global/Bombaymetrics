@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Bombaymetrics.Inventory
 {
-    public partial class CountryMaster : System.Web.UI.Page
+    public partial class SupplyTypeMaster : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace Bombaymetrics.Inventory
         {
             General objGeneral = new General();
 
-            DataSet ds = objGeneral.GetDataSet("GetCountries");
+            DataSet ds = objGeneral.GetDataSet("GetSupplyTypes");
 
             if (ds != null && ds.Tables.Count > 0)
             {
@@ -43,19 +43,16 @@ namespace Bombaymetrics.Inventory
             {
                 General objGeneral = new General();
 
-                SqlParameter[] SQLcmdParameters = new SqlParameter[2];
-                SqlParameter Param = new SqlParameter("@CountryCode", SqlDbType.VarChar);
-                Param.Value = txtCountryCode.Text;
+                SqlParameter[] SQLcmdParameters = new SqlParameter[1];
+                SqlParameter Param = new SqlParameter("@SupplyTypeCode", SqlDbType.VarChar);
+                Param.Value = txtSupplyTypeCode.Text;
                 SQLcmdParameters[0] = Param;
-                Param = new SqlParameter("@CountryName", SqlDbType.VarChar);
-                Param.Value = txtCountryName.Text;
-                SQLcmdParameters[1] = Param;
+               
 
-                objGeneral.GetDataInsertORUpdate("InsertCountry", SQLcmdParameters);
+                objGeneral.GetDataInsertORUpdate("InsertSupplyType", SQLcmdParameters);
 
                 BindGridview();
-                txtCountryCode.Text = "";
-                txtCountryName.Text = "";
+                txtSupplyTypeCode.Text = "";
             }
         }
 
@@ -79,10 +76,10 @@ namespace Bombaymetrics.Inventory
             General objGeneral = new General();
 
             SqlParameter[] SQLcmdParameters = new SqlParameter[1];
-            SqlParameter Param = new SqlParameter("@CountryID", SqlDbType.Int);
+            SqlParameter Param = new SqlParameter("@SupplyTypeID", SqlDbType.Int);
             Param.Value = id;
             SQLcmdParameters[0] = Param;
-            objGeneral.GetDataInsertORUpdate("DeleteCountry", SQLcmdParameters);
+            objGeneral.GetDataInsertORUpdate("DeleteSupplyType", SQLcmdParameters);
 
             BindGridview();
         }
@@ -93,25 +90,22 @@ namespace Bombaymetrics.Inventory
             BindGridview();
         }
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {            
+        {
             GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
             int id = Convert.ToInt32(e.Keys[0]);
             TextBox txtCode = (TextBox)row.Cells[3].Controls[0];
-            TextBox txtName = (TextBox)row.Cells[4].Controls[0];
             General objGeneral = new General();
 
-            SqlParameter[] SQLcmdParameters = new SqlParameter[3];
-            SqlParameter Param = new SqlParameter("@CountryID", SqlDbType.Int);
+            SqlParameter[] SQLcmdParameters = new SqlParameter[2];
+            SqlParameter Param = new SqlParameter("@SupplyTypeID", SqlDbType.Int);
             Param.Value = id;
             SQLcmdParameters[0] = Param;
-            Param = new SqlParameter("@CountryCode", SqlDbType.VarChar);
+            Param = new SqlParameter("@SupplyTypeCode", SqlDbType.VarChar);
             Param.Value = txtCode.Text;
             SQLcmdParameters[1] = Param;
-            Param = new SqlParameter("@CountryName", SqlDbType.VarChar);
-            Param.Value = txtName.Text;
-            SQLcmdParameters[2] = Param;
+           
 
-            objGeneral.GetDataInsertORUpdate("UpdateCountry", SQLcmdParameters);
+            objGeneral.GetDataInsertORUpdate("UpdateSupplyType", SQLcmdParameters);
             GridView1.EditIndex = -1;
             BindGridview();
         }

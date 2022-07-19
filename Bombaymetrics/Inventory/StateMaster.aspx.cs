@@ -54,6 +54,8 @@ namespace Bombaymetrics.Inventory
                 objGeneral.GetDataInsertORUpdate("InsertState", SQLcmdParameters);
 
                 BindGridview();
+                txtStateCode.Text = "";
+                txtStateName.Text="";
             }
         }
 

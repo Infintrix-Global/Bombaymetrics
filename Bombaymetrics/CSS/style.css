@@ -189,3 +189,26 @@ input.edit-button {
     background-color: green;
     border-color: white;
 }
+.btnedit {
+    background-color: #176737;
+    color: white;
+    width: 80px;
+    border-color: white;
+}
+
+.btndelete {
+    background-color: darkred;
+    color: white;
+    width: 80px;
+    border-color: white;
+}
+
+.btnadd {
+    background-color: #ff8800;
+    color: white;
+}
+
+.btncancel {
+    background-color: darkred;
+    color: white;
+}

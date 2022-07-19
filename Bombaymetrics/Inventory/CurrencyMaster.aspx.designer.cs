@@ -11,17 +11,17 @@ namespace Bombaymetrics.Inventory
 {
 
 
-    public partial class CountryMaster
+    public partial class CurrencyMaster
     {
 
         /// <summary>
-        /// txtCountryCode control.
+        /// txtCurrencyCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCountryCode;
+        protected global::System.Web.UI.WebControls.TextBox txtCurrencyCode;
 
         /// <summary>
         /// requiredfieldvalidator1 control.
@@ -33,13 +33,13 @@ namespace Bombaymetrics.Inventory
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredfieldvalidator1;
 
         /// <summary>
-        /// txtCountryName control.
+        /// txtCurrencyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCountryName;
+        protected global::System.Web.UI.WebControls.TextBox txtCurrencyName;
 
         /// <summary>
         /// requiredfieldvalidator2 control.
@@ -51,13 +51,13 @@ namespace Bombaymetrics.Inventory
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredfieldvalidator2;
 
         /// <summary>
-        /// btnAdd control.
+        /// btnAddCurrency control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Button btnAddCurrency;
 
         /// <summary>
         /// UpdatePanel1 control.

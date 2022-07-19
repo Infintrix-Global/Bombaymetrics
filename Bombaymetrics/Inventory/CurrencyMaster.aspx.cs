@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Bombaymetrics.Inventory
 {
-    public partial class CountryMaster : System.Web.UI.Page
+    public partial class CurrencyMaster : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace Bombaymetrics.Inventory
         {
             General objGeneral = new General();
 
-            DataSet ds = objGeneral.GetDataSet("GetCountries");
+            DataSet ds = objGeneral.GetDataSet("GetCurrencies");
 
             if (ds != null && ds.Tables.Count > 0)
             {
@@ -44,14 +44,14 @@ namespace Bombaymetrics.Inventory
                 General objGeneral = new General();
 
                 SqlParameter[] SQLcmdParameters = new SqlParameter[2];
-                SqlParameter Param = new SqlParameter("@CountryCode", SqlDbType.VarChar);
-                Param.Value = txtCountryCode.Text;
+                SqlParameter Param = new SqlParameter("@CurrencyCode", SqlDbType.VarChar);
+                Param.Value = txtCurrencyCode.Text;
                 SQLcmdParameters[0] = Param;
-                Param = new SqlParameter("@CountryName", SqlDbType.VarChar);
-                Param.Value = txtCountryName.Text;
+                Param = new SqlParameter("@CurrencyName", SqlDbType.VarChar);
+                Param.Value = txtCurrencyName.Text;
                 SQLcmdParameters[1] = Param;
 
-                objGeneral.GetDataInsertORUpdate("InsertCountry", SQLcmdParameters);
+                objGeneral.GetDataInsertORUpdate("InsertCurrency", SQLcmdParameters);
 
                 BindGridview();
             }
@@ -77,10 +77,10 @@ namespace Bombaymetrics.Inventory
             General objGeneral = new General();
 
             SqlParameter[] SQLcmdParameters = new SqlParameter[1];
-            SqlParameter Param = new SqlParameter("@CountryID", SqlDbType.Int);
+            SqlParameter Param = new SqlParameter("@CurrencyID", SqlDbType.Int);
             Param.Value = id;
             SQLcmdParameters[0] = Param;
-            objGeneral.GetDataInsertORUpdate("DeleteCountry", SQLcmdParameters);
+            objGeneral.GetDataInsertORUpdate("DeleteCurrency", SQLcmdParameters);
 
             BindGridview();
         }
@@ -91,7 +91,7 @@ namespace Bombaymetrics.Inventory
             BindGridview();
         }
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {            
+        {
             GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
             int id = Convert.ToInt32(e.Keys[0]);
             TextBox txtCode = (TextBox)row.Cells[3].Controls[0];
@@ -99,17 +99,17 @@ namespace Bombaymetrics.Inventory
             General objGeneral = new General();
 
             SqlParameter[] SQLcmdParameters = new SqlParameter[3];
-            SqlParameter Param = new SqlParameter("@CountryID", SqlDbType.Int);
+            SqlParameter Param = new SqlParameter("@CurrencyID", SqlDbType.Int);
             Param.Value = id;
             SQLcmdParameters[0] = Param;
-            Param = new SqlParameter("@CountryCode", SqlDbType.VarChar);
+            Param = new SqlParameter("@CurrencyCode", SqlDbType.VarChar);
             Param.Value = txtCode.Text;
             SQLcmdParameters[1] = Param;
-            Param = new SqlParameter("@CountryName", SqlDbType.VarChar);
+            Param = new SqlParameter("@CurrencyName", SqlDbType.VarChar);
             Param.Value = txtName.Text;
             SQLcmdParameters[2] = Param;
 
-            objGeneral.GetDataInsertORUpdate("UpdateCountry", SQLcmdParameters);
+            objGeneral.GetDataInsertORUpdate("UpdateCurrency", SQLcmdParameters);
             GridView1.EditIndex = -1;
             BindGridview();
         }

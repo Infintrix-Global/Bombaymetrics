@@ -109,3 +109,11 @@ The statement has been terminated. at 7/8/2022 6:38:34 PM
    at Bombaymetrics.BAL.General.GetDataSet(String storedProcedure) in D:\Nidhi\Projects\Bombaymetrics\Bombaymetrics\BAL\General.cs:line 199Could not find stored procedure 'GetCurrencies'. at 7/19/2022 4:06:32 PM
 *****Error message=****Sql Error is=Could not find stored procedure 'InsertCurrency'. at 7/19/2022 4:08:24 PM
 *****Error message=****Sql Error is=Failed to convert parameter value from a String to a Decimal. at 7/19/2022 5:26:24 PM
+*****Error message=****Sql Error is=String or binary data would be truncated.
+The statement has been terminated. at 7/21/2022 7:49:22 PM
+*****Error message=****Sql Error is=String or binary data would be truncated.
+The statement has been terminated. at 7/21/2022 7:54:24 PM
+*****Error message=****Sql Error is=String or binary data would be truncated.
+The statement has been terminated. at 7/21/2022 7:58:31 PM
+*****Error message=****Sql Error is=String or binary data would be truncated.
+The statement has been terminated. at 7/21/2022 8:03:11 PM

@@ -101,6 +101,8 @@
   <ItemGroup>
     <Content Include="CSS\style.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="Inventory\Customers.aspx" />
+    <Content Include="Inventory\CustomerMaster.aspx" />
     <Content Include="Inventory\CompanyMaster.aspx" />
     <Content Include="Inventory\CountryMaster.aspx" />
     <Content Include="Inventory\CurrencyMaster.aspx" />
@@ -156,6 +158,20 @@
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Customers.aspx.cs">
+      <DependentUpon>Customers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\Customers.aspx.designer.cs">
+      <DependentUpon>Customers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\CustomerMaster.aspx.cs">
+      <DependentUpon>CustomerMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\CustomerMaster.aspx.designer.cs">
+      <DependentUpon>CustomerMaster.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory\CompanyMaster.aspx.cs">
       <DependentUpon>CompanyMaster.aspx</DependentUpon>

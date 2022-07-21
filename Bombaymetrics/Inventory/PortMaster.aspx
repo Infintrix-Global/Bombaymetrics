@@ -1,20 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="PortMaster.aspx.cs" Inherits="Bombaymetrics.Inventory.PortMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function showHideDivPort(ele) {
-            var srcElement = document.getElementById(ele);
-            if (srcElement != null) {
-                if (srcElement.style.display == "block") {
-                    srcElement.style.display = 'none';
-                }
-                else {
-                    srcElement.style.display = 'block';
-                }
-                return false;
-            }
-        }
-    </script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid py-3">
@@ -26,7 +13,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <button style="" type="button" class="btn btn-primaryseries" onclick="showHideDivPort('divAddPort')">
+                        <button style="" type="button" class="btn btn-primaryseries" onclick="showHideDiv('divAddPort')">
                             <i class="fa fa-plus-circle"></i>Add Port
                         </button>
                     </div>

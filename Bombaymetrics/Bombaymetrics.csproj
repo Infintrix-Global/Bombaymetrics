@@ -101,8 +101,10 @@
   <ItemGroup>
     <Content Include="CSS\style.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="Inventory\CompanyMaster.aspx" />
     <Content Include="Inventory\CountryMaster.aspx" />
     <Content Include="Inventory\CurrencyMaster.aspx" />
+    <Content Include="Inventory\Companies.aspx" />
     <Content Include="Inventory\Items.aspx" />
     <Content Include="Inventory\UnitMaster.aspx" />
     <Content Include="Inventory\PortMaster.aspx" />
@@ -140,6 +142,7 @@
     <Content Include="IPO\SeriesUpload.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\Common.js" />
     <Content Include="UserManagement\UserAccess.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -154,6 +157,13 @@
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inventory\CompanyMaster.aspx.cs">
+      <DependentUpon>CompanyMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\CompanyMaster.aspx.designer.cs">
+      <DependentUpon>CompanyMaster.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inventory\CountryMaster.aspx.cs">
       <DependentUpon>CountryMaster.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -167,6 +177,13 @@
     </Compile>
     <Compile Include="Inventory\CurrencyMaster.aspx.designer.cs">
       <DependentUpon>CurrencyMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\Companies.aspx.cs">
+      <DependentUpon>Companies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inventory\Companies.aspx.designer.cs">
+      <DependentUpon>Companies.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inventory\Items.aspx.cs">
       <DependentUpon>Items.aspx</DependentUpon>

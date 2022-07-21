@@ -1,20 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="TaxRateMaster.aspx.cs" Inherits="Bombaymetrics.Inventory.TaxRateMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function showHideDivSupply(ele) {
-            var srcElement = document.getElementById(ele);
-            if (srcElement != null) {
-                if (srcElement.style.display == "block") {
-                    srcElement.style.display = 'none';
-                }
-                else {
-                    srcElement.style.display = 'block';
-                }
-                return false;
-            }
-        }
-    </script>
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid py-3">

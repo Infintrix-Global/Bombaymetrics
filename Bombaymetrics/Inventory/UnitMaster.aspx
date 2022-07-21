@@ -1,20 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="UnitMaster.aspx.cs" Inherits="Bombaymetrics.Inventory.UnitMaster" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript">
-        function showHideDivUnit(ele) {
-            var srcElement = document.getElementById(ele);
-            if (srcElement != null) {
-                if (srcElement.style.display == "block") {
-                    srcElement.style.display = 'none';
-                }
-                else {
-                    srcElement.style.display = 'block';
-                }
-                return false;
-            }
-        }
-    </script>
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid py-3">
@@ -26,7 +13,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <button style="" type="button" class="btn btn-primaryseries" onclick="showHideDivUnit('divAddUnit')">
+                        <button style="" type="button" class="btn btn-primaryseries" onclick="showHideDiv('divAddUnit')">
                             <i class="fa fa-plus-circle"></i>Add Unit
                         </button>
                     </div>
@@ -45,7 +32,7 @@
                 <div class="table-responsive mt-lg-5 mt-xl-0">
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
-                            <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white" ShowHeaderWhenEmpty="false" DataKeyDescriptions="UnitID"
+                            <asp:GridView ID="GridView1" ClientIDMode="Static" HeaderStyle-CssClass="tableheader text-white" ShowHeaderWhenEmpty="false" DataKeyNames="UnitID"
                                 runat="server" AutoGenerateColumns="true" CssClass="table  table-hover" OnRowDeleting="GridView1_OnRowDeleting"
                                 OnRowEditing="GridView1_RowEditing" OnRowDataBound="GridView1_OnRowDataBound" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit">
                                 <Columns>
